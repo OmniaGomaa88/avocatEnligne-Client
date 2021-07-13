@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import './App.css';
+import './assets/App.scss';
 
 function App() {
   return (
