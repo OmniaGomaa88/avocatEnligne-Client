@@ -1,11 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { Button, TextField } from "@material-ui/core";
-// import Select from '@material-ui/core/Select';
-// import InputLabel from '@material-ui/core/InputLabel';
-// import Input from '@material-ui/core/Input';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import Input from '@material-ui/core/Input';
 
 import avocatService from "../services/Avocat";
+import villeService from "../services/ville";
+
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+    },
+  },
+};
 const EnregistreForm = (props) => {
+  const nodeRef = React.useRef(null);
+  const [vills,setVills]=useState([])
   const [error, setError] = useState(false);
   const [state, setState] = useState({
     prenom: "",
@@ -66,8 +81,20 @@ const EnregistreForm = (props) => {
   };
   console.log(error);
 
+  // fnction to get all ville
+  const getVills=async()=>{
+    try{
+    const   villsData = await villeService.getAll()
+    setVills(villsData.data.result)
+      console.log(vills)
+    }
+    catch (error){
+      console.log(error)
+    }
+  }
+
   useEffect(() => {
-    //   handleClick();
+    getVills()
   }, []);
 
   return (
@@ -85,7 +112,17 @@ const EnregistreForm = (props) => {
             onChange={handleChange}
           />
           <TextField label="Adress" name="Adress" onChange={handleChange} />
-          <TextField label="Ville" name="Ville" onChange={handleChange} />
+          {/* <TextField label="Ville" onChange={handleChange} /> */}
+          <select name="Ville" onChange={handleChange} >
+            <option value="Choissez votre ville">
+            Choissez votre ville
+            </option>
+          {vills.map((ville,index) => (
+            <option key={index} value={ville.nom} >
+             {ville.nom}
+             </option>
+          ))}
+       </select>
 
           <TextField
             label="Presentation"
