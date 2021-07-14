@@ -1,26 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Button, TextField } from "@material-ui/core";
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
-import Input from '@material-ui/core/Input';
-
+import Input from "@material-ui/core/Input";
 import avocatService from "../services/Avocat";
 import villeService from "../services/ville";
+import specialitService from "../services/Specialite";
 
-
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
-};
 const EnregistreForm = (props) => {
-  const nodeRef = React.useRef(null);
-  const [vills,setVills]=useState([])
+  const [vills, setVills] = useState([]);
+  const [specialits, setSpecialits] = useState([]);
   const [error, setError] = useState(false);
   const [state, setState] = useState({
     prenom: "",
@@ -59,7 +46,6 @@ const EnregistreForm = (props) => {
     console.log("state", state);
     console.log("ville", Ville);
 
-
     try {
       const addNewAvocat = await avocatService.addNewAvocat(
         prenom,
@@ -82,20 +68,36 @@ const EnregistreForm = (props) => {
   console.log(error);
 
   // fnction to get all ville
-  const getVills=async()=>{
-    try{
-    const   villsData = await villeService.getAll()
-    setVills(villsData.data.result)
-      console.log(vills)
+  const getVills = async () => {
+    try {
+      const villsData = await villeService.getAll();
+      setVills(villsData.data.result);
+      console.log(vills);
+    } catch (error) {
+      console.log(error);
     }
-    catch (error){
-      console.log(error)
+  };
+  // fnction to get all specialits
+  const getspecialits = async () => {
+    try {
+      const specialitdata = await specialitService.getAll();
+      setSpecialits(specialitdata.data.result);
+      console.log(specialits);
+    } catch (error) {
+      console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
-    getVills()
+      getVills();
+    
+  
   }, []);
+  useEffect(() => {
+   
+  getspecialits();
+
+}, []);
 
   return (
     <div>
@@ -112,28 +114,31 @@ const EnregistreForm = (props) => {
             onChange={handleChange}
           />
           <TextField label="Adress" name="Adress" onChange={handleChange} />
-          {/* <TextField label="Ville" onChange={handleChange} /> */}
-          <select name="Ville" onChange={handleChange} >
-            <option value="Choissez votre ville">
-            Choissez votre ville
-            </option>
-          {vills.map((ville,index) => (
-            <option key={index} value={ville.nom} >
-             {ville.nom}
-             </option>
-          ))}
-       </select>
+          <TextField label="Ville" onChange={handleChange} /> 
+           <select name="Ville" onChange={handleChange}>
+            <option value="Choisissez votre ville">Choissez votre ville</option>
+            {vills.map((ville, index) => (
+              <option key={index} value={ville.nom}>
+                {ville.nom}
+              </option>
+            ))}
+          </select>
 
           <TextField
             label="Presentation"
             name="Presentation"
             onChange={handleChange}
           />
-          <TextField
-            label="Specialite"
-            name="Specialite"
-            onChange={handleChange}
-          />
+          <select name="Specialite" onChange={handleChange}>
+            <option value="Choisissez votre Spécialité">
+              Choissez votre Spécialité
+            </option>
+            {specialits.map((specialit, index) => (
+              <option key={index} value={specialit.nom}>
+                {specialit.nom}
+              </option>
+            ))}
+          </select>
           <TextField label="Honorare" name="Honorare" onChange={handleChange} />
           <TextField label="image" name="image" onChange={handleChange} />
           <br />
