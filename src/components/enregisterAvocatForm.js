@@ -89,15 +89,11 @@ const EnregistreForm = (props) => {
   };
 
   useEffect(() => {
-      getVills();
-    
-  
+    getVills();
   }, []);
   useEffect(() => {
-   
-  getspecialits();
-
-}, []);
+    getspecialits();
+  }, []);
 
   return (
     <div>
@@ -114,8 +110,8 @@ const EnregistreForm = (props) => {
             onChange={handleChange}
           />
           <TextField label="Adress" name="Adress" onChange={handleChange} />
-          <TextField label="Ville" onChange={handleChange} /> 
-           <select name="Ville" onChange={handleChange}>
+          <TextField label="Ville" onChange={handleChange} />
+          <select name="Ville" onChange={handleChange}>
             <option value="Choisissez votre ville">Choissez votre ville</option>
             {vills.map((ville, index) => (
               <option key={index} value={ville.nom}>
