@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Button, TextField } from "@material-ui/core";
 import clientService from "../services/client";
-
+import "./style/form.scss";
+import client_avec_avocat_Img from "../assets/imges/clientEnrgister.jpg"
 const ClientEnregistreForm = (props) => {
+  const classHiden = props.className
   const [error, setError] = useState(false);
   const [state, setState] = useState({
     prenom: "",
@@ -46,29 +48,58 @@ const ClientEnregistreForm = (props) => {
   console.log(error);
 
   return (
-    <div>
-      <div>
-        <div>
-          <TextField label="prenom" name="prenom" onChange={handleChange} />
-          <br />
-          <TextField label="nom" name="nom" onChange={handleChange} />
-          <TextField label="Email" name="Email" onChange={handleChange} />
-          <TextField label="Password" name="Password" onChange={handleChange} />
-          <TextField
-            label="Telephone"
-            name="Telephone"
-            onChange={handleChange}
-          />
-          <TextField label="Adress" name="Adress" onChange={handleChange} />
-          <Button
-            variant="outlined"
-            color="primary"
-            onClick={(event) => handleClick(event)}
-          >
+    <div className={classHiden}>
+      <div   className="Formcontainer">
+      <div className="Text">
+        <p>
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English. Many desktop publishing packages and web
+          page editors now use Lorem Ipsum as their default model text, and a
+          search for 'lorem ipsum' will uncover many web sites still in their
+          infancy. Various versions have evolved over the years, sometimes by
+          accident, sometimes on purpose (injected humour and the like).
+        </p>
+        <img src={client_avec_avocat_Img} alt="male lawyer reading Book" />
+      </div>
+        <div className="form" >
+        <div className="row">
+            <div>
+              <lable>prenom *</lable>
+              <input name="prenom" onChange={handleChange} />
+            </div>
+            <div>
+              <lable>Nom *</lable>
+              <input name="nom" onChange={handleChange} />
+            </div>
+          </div>
+          <div className="row">
+            <div>
+              <lable>Email * </lable>
+              <input name="Email" onChange={handleChange} />
+            </div>
+            <div>
+              <lable>Password *</lable>
+              <input name="Password" onChange={handleChange} />
+            </div>
+          </div>
+          <div className="column">
+            <div>
+              <label> Téléphone</label>
+              <input name="Telephone" onChange={handleChange} />
+            </div>
+            <div>
+              <lable>Adress *</lable>
+              <input name="Adress" onChange={handleChange} />
+            </div>
+            <button onClick={(event) => handleClick(event)} className="subBtn">
             Enregistre
-          </Button>
+          </button>
         </div>
       </div>
+    </div>
     </div>
   );
 };
