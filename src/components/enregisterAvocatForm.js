@@ -4,8 +4,30 @@ import Input from "@material-ui/core/Input";
 import avocatService from "../services/Avocat";
 import villeService from "../services/ville";
 import specialitService from "../services/Specialite";
-import Male_Lawyer_Reading_Img from "../assets/imges/Male_Lawyer_Reading .png"
+import Male_Lawyer_Img from "../assets/imges/online-avocat.jpeg";
 import "./style/form.scss";
+import Email from "@material-ui/icons/Email";
+import Lock from "@material-ui/icons/Lock";
+import Person from "@material-ui/icons/Person";
+import Phone from "@material-ui/icons/Phone";
+import LocationOnone from "@material-ui/icons/LocationOn";
+import LocationCity from "@material-ui/icons/LocationCity";
+import Description from "@material-ui/icons/Description";
+import Work from "@material-ui/icons/Work";
+import Euro from "@material-ui/icons/Euro";
+import AddAPhoto from "@material-ui/icons/AddAPhoto";
+
+
+
+
+
+
+
+
+
+
+
+
 const EnregistreForm = (props) => {
   const classHidde = props.className;
   const [vills, setVills] = useState([]);
@@ -99,52 +121,48 @@ const EnregistreForm = (props) => {
 
   return (
     <div className={classHidde}>
-      <div  className="Formcontainer">
-      <div className="Text">
-        <p>
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters, as opposed to using 'Content here, content here', making it
-          look like readable English. Many desktop publishing packages and web
-          page editors now use Lorem Ipsum as their default model text, and a
-          search for 'lorem ipsum' will uncover many web sites still in their
-          infancy. Various versions have evolved over the years, sometimes by
-          accident, sometimes on purpose (injected humour and the like).
-        </p>
-        <img src={Male_Lawyer_Reading_Img} alt="male lawyer reading Book" />
-      </div>
+      <div className="Formcontainer">
+     
         <div className="form">
+        <img src={Male_Lawyer_Img} alt="male lawyer " className="FormImg" />
+
           <div className="row">
             <div>
+              <Person></Person>
               <lable>prenom *</lable>
               <input name="prenom" onChange={handleChange} />
             </div>
             <div>
+              <Person></Person>
               <lable>Nom *</lable>
               <input name="nom" onChange={handleChange} />
             </div>
           </div>
           <div className="row">
             <div>
+              <Email></Email>
               <lable>Email * </lable>
               <input name="Email" onChange={handleChange} />
             </div>
             <div>
+              <Lock></Lock>
               <lable>Password *</lable>
               <input name="Password" onChange={handleChange} />
             </div>
           </div>
           <div className="column">
             <div>
+              <Phone></Phone>
               <label> Téléphone</label>
               <input name="Telephone" onChange={handleChange} />
             </div>
             <div>
+              <LocationOnone></LocationOnone>
               <lable>Adress *</lable>
               <input name="Adress" onChange={handleChange} />
             </div>
             <div>
+              <LocationCity></LocationCity>
               <lable> Ville</lable>
               <select name="Ville" className="select" onChange={handleChange}>
                 <option value="Choisissez votre ville *">
@@ -160,10 +178,12 @@ const EnregistreForm = (props) => {
           </div>
           <div className="column">
             <div>
+              <Description></Description>
               <lable> Presentation *</lable>
               <textarea classname="Presentation" onChange={handleChange} />
             </div>
             <div>
+             <Work></Work>
               <lable>Specialite </lable>
               <select
                 className="select"
@@ -181,12 +201,14 @@ const EnregistreForm = (props) => {
               </select>
             </div>
             <div>
-              <lable>Honorare *</lable>
+              <Euro></Euro>
+              <lable>Honoraire *</lable>
               <input name="Honorare" onChange={handleChange} />
             </div>
           </div>
           <div className="image">
             <div>
+              <AddAPhoto></AddAPhoto>
               <lable> Image * </lable>
               <input name="image" onChange={handleChange} />
             </div>

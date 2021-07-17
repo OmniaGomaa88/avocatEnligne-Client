@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button, TextField } from "@material-ui/core";
 import clientService from "../services/client";
 import "./style/form.scss";
-import client_avec_avocat_Img from "../assets/imges/clientEnrgister.jpg"
+import client_avec_avocat_Img from "../assets/imges/clientEnrigster.jpg"
 const ClientEnregistreForm = (props) => {
   const classHiden = props.className
   const [error, setError] = useState(false);
@@ -50,21 +50,10 @@ const ClientEnregistreForm = (props) => {
   return (
     <div className={classHiden}>
       <div   className="Formcontainer">
-      <div className="Text">
-        <p>
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters, as opposed to using 'Content here, content here', making it
-          look like readable English. Many desktop publishing packages and web
-          page editors now use Lorem Ipsum as their default model text, and a
-          search for 'lorem ipsum' will uncover many web sites still in their
-          infancy. Various versions have evolved over the years, sometimes by
-          accident, sometimes on purpose (injected humour and the like).
-        </p>
-        <img src={client_avec_avocat_Img} alt="male lawyer reading Book" />
-      </div>
+     
         <div className="form" >
+        <img src={client_avec_avocat_Img} alt="male lawyer reading Book" className="FormImg" />
+
         <div className="row">
             <div>
               <lable>prenom *</lable>

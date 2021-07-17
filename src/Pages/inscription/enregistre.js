@@ -15,7 +15,11 @@ const Enregistre = (props) => {
 
   return (
     <div className="container">
+     
       <div className="Form">
+      <h1>
+        Inscription
+        </h1>
         <ul className="Buttons">
           <li>
           <a  onClick={() => handleClick("Avocat")} className={clicked == "Avocat" ? "clicked" : "ButtonDefult"}> Avocat</a>
@@ -24,9 +28,7 @@ const Enregistre = (props) => {
           <a  onClick={() => handleClick("Client")} className={clicked == "Client" ? "clicked" : "ButtonDefult"}> Client</a>
           </li>
         </ul>
-        <h1>
-        Inscription
-        </h1>
+      
         <div className="Forms">
         <EnregistreForm className="show"  className={clicked == "Avocat" ? "show" : "hidden"} />
         <ClientEnregistreForm className={clicked == "Client" ? "show" : "hidden"} />
