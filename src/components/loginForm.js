@@ -1,11 +1,15 @@
 import { useState, React } from "react";
 import "./style/form.scss";
-import Email from "@material-ui/icons/Email";
+import Email from "@material-ui/icons/Email"
 import Lock from "@material-ui/icons/Lock";
 const LoginForm = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
+ 
+  const hendelClick = async (e)=>{
+    let response = await props.service.Login(email, password)
+    console.log(response.data)
+  }
 
   return (
     <div className={props.className}>
@@ -27,7 +31,11 @@ const LoginForm = (props) => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <button onClick={props.handleClick} className="subBtn">
+            <button onClick={e=> hendelClick(e)}
+           
+              
+            
+             className="subBtn">
               Enregistre
             </button>
           </div>

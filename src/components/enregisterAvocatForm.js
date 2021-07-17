@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-
-import Input from "@material-ui/core/Input";
 import avocatService from "../services/Avocat";
 import villeService from "../services/ville";
 import specialitService from "../services/Specialite";
@@ -16,15 +14,6 @@ import Description from "@material-ui/icons/Description";
 import Work from "@material-ui/icons/Work";
 import Euro from "@material-ui/icons/Euro";
 import AddAPhoto from "@material-ui/icons/AddAPhoto";
-
-
-
-
-
-
-
-
-
 
 
 

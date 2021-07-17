@@ -18,5 +18,11 @@ const clientService = {
       
     });
   },
+  Login: async (email, password) => {
+    return await api.post("client/Login", {
+      email,
+      password,
+    });
+  },
 };
 export default clientService;
