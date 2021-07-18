@@ -36,5 +36,8 @@ const avocatService = {
   getAll: async (ville, Specialite) => {
     return await api.get(`avocats/${ville}/${Specialite}`,);
   },
+  getById: async (id) => {
+    return await api.get(`/avocat/${id}`,);
+  },
 };
 export default avocatService;

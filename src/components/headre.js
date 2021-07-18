@@ -16,10 +16,10 @@ const Header = (props) => {
   const [specialits, setSpecialits] = useState([]);
   const handleClick = async (e) => {
     let response = await avocatService.getAll(ville, Specialite);
-    let data = response.data;
+    let data = response.data.result;
     localStorage.setItem("avocats", JSON.stringify(data));
-    // data = JSON.parse(localStorage.getItem('avocats'));
-    console.log(data);
+
+    //  console.log(data);
 
     //  props.history.push('/avocats');
   };
@@ -27,7 +27,6 @@ const Header = (props) => {
     try {
       const villsData = await villeService.getAll();
       setVills(villsData.data.result);
-      
     } catch (error) {
       console.log(error);
     }
@@ -37,7 +36,6 @@ const Header = (props) => {
     try {
       const specialitdata = await specialitService.getAll();
       setSpecialits(specialitdata.data.result);
-     
     } catch (error) {
       console.log(error);
     }
@@ -55,10 +53,10 @@ const Header = (props) => {
         <nav>
           <ul className="navBar">
             <li className="navBarItem">
-              <a>Connexion</a>
+              <Link to="/Login">Connexion</Link>
             </li>
             <li className="navBarItem">
-              <a>Enregistre</a>
+              <Link to="/signup">Enregistre</Link>
             </li>
           </ul>
         </nav>
