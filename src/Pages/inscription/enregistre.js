@@ -38,6 +38,7 @@ const Enregistre = (props) => {
         href="/Login"
         >J'ai déJa compt</a>
       </div>
+     
     
     </div>
   );

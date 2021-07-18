@@ -3,26 +3,25 @@
   flex-direction: row;
   justify-content: space-evenly;
   font-size: 30px;
- 
+
   // border-bottom: 3px solid gray;
   color: rgb(22, 21, 21);
 
   margin-top: 5%;
- 
-  li{
+
+  li {
     text-decoration: none;
     list-style: none;
 
-// border-bottom: 3px solid rgb(248, 241, 241);
-
+    // border-bottom: 3px solid rgb(248, 241, 241);
   }
-  
 }
 .container {
   display: flex;
   flex-direction: row;
   border: 2px solid black;
-  background-color: #e5e5e5;
+  background-color: #545454;
+
   justify-content: center;
 }
 
@@ -35,7 +34,7 @@
   color: #e8e8e8;
   height: 500px;
   padding-left: 5%;
-  
+
   p {
     width: 50%;
     margin-left: 5%;
@@ -50,18 +49,19 @@
 .Forms {
   display: flex;
   flex-direction: row;
-  justify-content:center
+  justify-content: center;
 }
 .hidden {
   display: none;
-
 }
 .show {
   display: block;
-  
 }
-.clicked{
+.clicked {
   // background-color:white;
- 
+
   border-bottom: 2px solid white;
+}
+.btn:active{
+background-color:red
 }

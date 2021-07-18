@@ -33,5 +33,8 @@ const avocatService = {
       password,
     });
   },
+  getAll: async (ville, Specialite) => {
+    return await api.get(`avocats/${ville}/${Specialite}`,);
+  },
 };
 export default avocatService;

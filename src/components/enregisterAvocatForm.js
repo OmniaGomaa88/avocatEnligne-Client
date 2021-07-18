@@ -199,7 +199,7 @@ const EnregistreForm = (props) => {
             <div>
               <AddAPhoto></AddAPhoto>
               <lable> Image * </lable>
-              <input name="image" onChange={handleChange} />
+              <input name="image" type="file" onChange={handleChange} />
             </div>
           </div>
           <button onClick={(event) => handleClick(event)} className="subBtn">

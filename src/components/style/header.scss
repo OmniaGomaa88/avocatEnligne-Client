@@ -1,0 +1,39 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+}
+.navBar {
+  display: flex;
+  flex-direction: row;
+
+  margin-right: 5%;
+}
+.navBarItem {
+  list-style: none;
+  margin-bottom: 10%;
+}
+.navSocial,
+.navBarItem {
+  margin-right: 5%;
+  margin-top: 5%;
+}
+.backGround {
+  background-size: cover;
+  background-attachment: fixed;
+  height: 400px;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
+}
+.overLay {
+  background-image: linear-gradient(  rgb(102, 100, 100) , rgba(232,232,232,1) 90%);
+  width:100%;
+  height: 100%;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+//   align-items: center;
+}
+.SearchBar {
+  width: 30%;
+}
