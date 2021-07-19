@@ -24,7 +24,7 @@ const AvocatProfile = (props) => {
   return (
     <div>
       <p>you are in avocat Profile</p>
-      <AvoatCarte></AvoatCarte>
+      
     </div>
   );
 };

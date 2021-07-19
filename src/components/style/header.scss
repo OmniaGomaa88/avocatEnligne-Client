@@ -1,3 +1,6 @@
+header{
+  position: relative;
+}
 .nav {
   display: flex;
   flex-direction: row;
@@ -35,5 +38,46 @@
 //   align-items: center;
 }
 .SearchBar {
-  width: 30%;
+  width:90%;
+  background-color: #545454;
+  display: flex;
+  flex-direction:row;
+  flex-wrap: nowrap;
+  height: 80px;
+ justify-content:center;
+ padding-left: 0%;
+ position:absolute;
+ top :50%;
+ margin-left: 5%;
+
+
+
 }
+select{
+  width:50%;
+  height: 30px;
+  margin-right:3%;
+  margin-left: 3%;
+  }
+  .searchBtn{
+    margin-left: 10%;
+    color: #545454;
+    border: 2px solid #979793;
+    background-color: #ABA18B;
+    border-radius: 5% ;
+    font-weight: bold;
+    width: 100px;
+  height: 50px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  box-shadow: inset 0 0 0 0 rgb(177, 174, 174);
+  font-size: 20px;
+transition: ease-out 0.4s;
+outline: none;
+cursor: pointer;
+ &:hover{
+  box-shadow: inset 150px 0 0 0 rgb(253, 250, 250);
+color:  #ABA18B;
+}
+
+}
+

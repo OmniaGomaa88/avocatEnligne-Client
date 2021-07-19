@@ -17,12 +17,15 @@ const Header = (props) => {
   const handleClick = async (e) => {
     let response = await avocatService.getAll(ville, Specialite);
     let data = response.data.result;
+    // loclaStorage de le recherch
     localStorage.setItem("avocats", JSON.stringify(data));
 
-     console.log(data);
+    console.log(data);
 
     //  props.history.push('/avocats');
   };
+  localStorage.setItem("vill", ville);
+  localStorage.setItem("Specialite", Specialite);
   const getVills = async () => {
     try {
       const villsData = await villeService.getAll();
@@ -71,7 +74,7 @@ const Header = (props) => {
         className="backGround"
         style={{ backgroundImage: `url(${headerImg})` }}
       >
-        <div className="Seacrcher">
+        <div className="SearchBar">
           <select
             name="Ville"
             className="select"
@@ -101,9 +104,10 @@ const Header = (props) => {
               </option>
             ))}
           </select>
-          <button className="btnSub" onClick={(e) => handleClick(e)}>
-            <Link to="/avocats">Search</Link>
+          <Link to="/avocats" >  <button className="searchBtn" onClick={(e) => handleClick(e)}>
+           Search
           </button>
+          </Link>
         </div>
       </div>
     </header>

@@ -4,14 +4,21 @@ import AvoatCarte from '../../components/avocatCart'
 
 const Avocats = (props) => {
   const data = JSON.parse(localStorage.getItem("avocats"));
-  console.log(data);
+  const ville = localStorage.getItem("ville");
+  const Specialite = localStorage.getItem("Specialite");
+  console.log(Specialite);
+
+ 
+  console.log(ville);
+
 
   return (
     <div>
-      <p>you are in avocats page</p>
+      <h2> les avocat de Spécialité :{Specialite} dans la ville : <span>{ville}</span></h2>
       {data.map((avocat,index) =>{
         return(
         <AvoatCarte
+        index={index}
         prenom= {avocat.Prénom}
         nom={avocat.Nom}
         adress={avocat.Adress}
