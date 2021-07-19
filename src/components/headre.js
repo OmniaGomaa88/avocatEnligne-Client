@@ -19,7 +19,7 @@ const Header = (props) => {
     let data = response.data.result;
     localStorage.setItem("avocats", JSON.stringify(data));
 
-    //  console.log(data);
+     console.log(data);
 
     //  props.history.push('/avocats');
   };

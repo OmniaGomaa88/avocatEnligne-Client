@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import avocatService from "../../services/Avocat";
 import { matchPath } from "react-router";
 import { useEffect, useState } from "react";
-
+import AvoatCarte from "../../components/avocatCart"
 const AvocatProfile = (props) => {
   const id = props.match.params.id;
   const [error, setError] = useState(false);
@@ -24,6 +24,7 @@ const AvocatProfile = (props) => {
   return (
     <div>
       <p>you are in avocat Profile</p>
+      <AvoatCarte></AvoatCarte>
     </div>
   );
 };
