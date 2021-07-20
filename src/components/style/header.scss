@@ -1,24 +1,31 @@
-header{
+header {
   position: relative;
 }
 .nav {
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
+  background-color: #545454;
 }
 .navBar {
   display: flex;
   flex-direction: row;
-
-  margin-right: 5%;
+  margin-right: 10%;
 }
 .navBarItem {
   list-style: none;
   margin-bottom: 10%;
 }
-.navSocial,
+a {
+  text-decoration: none;
+}
+
 .navBarItem {
   margin-right: 5%;
+  margin-left: 5%;
+
   margin-top: 5%;
+  background-color: white;
 }
 .backGround {
   background-size: cover;
@@ -29,55 +36,53 @@ header{
   z-index: 1;
 }
 .overLay {
-  background-image: linear-gradient(  rgb(102, 100, 100) , rgba(232,232,232,1) 90%);
-  width:100%;
+  background-image: linear-gradient(
+    rgb(102, 100, 100),
+    rgba(232, 232, 232, 1) 90%
+  );
+  width: 100%;
   height: 100%;
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: center;
-//   align-items: center;
+  //   display: flex;
+  //   flex-direction: row;
+  //   justify-content: center;
+  //   align-items: center;
 }
 .SearchBar {
-  width:90%;
+  width: 90%;
   background-color: #545454;
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
   flex-wrap: nowrap;
   height: 80px;
- justify-content:center;
- padding-left: 0%;
- position:absolute;
- top :50%;
- margin-left: 5%;
-
-
-
+  justify-content: center;
+  padding-left: 0%;
+  position: absolute;
+  top: 50%;
+  margin-left: 5%;
 }
-select{
-  width:50%;
+select {
+  width: 50%;
   height: 30px;
-  margin-right:3%;
+  margin-right: 3%;
   margin-left: 3%;
-  }
-  .searchBtn{
-    margin-left: 10%;
-    color: #545454;
-    border: 2px solid #979793;
-    background-color: #ABA18B;
-    border-radius: 5% ;
-    font-weight: bold;
-    width: 100px;
+}
+.searchBtn {
+  margin-left: 10%;
+  color: #545454;
+  border: 2px solid #979793;
+  background-color: #aba18b;
+  border-radius: 5%;
+  font-weight: bold;
+  width: 100px;
   height: 50px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   box-shadow: inset 0 0 0 0 rgb(177, 174, 174);
   font-size: 20px;
-transition: ease-out 0.4s;
-outline: none;
-cursor: pointer;
- &:hover{
-  box-shadow: inset 150px 0 0 0 rgb(253, 250, 250);
-color:  #ABA18B;
+  transition: ease-out 0.4s;
+  outline: none;
+  cursor: pointer;
+  &:hover {
+    box-shadow: inset 150px 0 0 0 rgb(253, 250, 250);
+    color: #aba18b;
+  }
 }
-
-}
-

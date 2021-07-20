@@ -63,12 +63,7 @@ const Header = (props) => {
             </li>
           </ul>
         </nav>
-        <nav className="navSocial">
-          <span>Suivez nous </span>
-          <Facebook></Facebook>
-          <Instagram></Instagram>
-          <Twitter></Twitter>
-        </nav>
+      
       </div>
       <div
         className="backGround"

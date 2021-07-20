@@ -1,0 +1,35 @@
+// rendezVous container
+.RDVBtn{
+    margin-left: 10%;
+    color: black;
+    border: 2px solid #979793;
+    background-color: #aba18b;
+    border-radius: 5% ;
+    font-weight: bold;
+    width: 150px;
+  height:50px;
+  font-family: "montserrat",sans-serif;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 rgb(161, 143, 143);
+transition: ease-out 0.4s;
+outline: none;
+  
+}
+.RDVContainer{
+  padding-top: 4%;
+ 
+  z-index: 2;
+}
+.RDVBtn:hover{
+  color: white;
+  box-shadow:  150px 0 0 0 rgb(253, 250, 250);
+  box-shadow:  5px 5px rgb(133, 140, 145)
+}
+.rendezVousFormHeader{
+  background-color:#545454;
+  color: white;
+  font-size:20px;
+}
+.RDVContainer{
+  background-color:#FDF9EF
+}

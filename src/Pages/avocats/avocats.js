@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import AvoatCarte from '../../components/avocatCart'
-
+import './avocats.scss'
 const Avocats = (props) => {
   const data = JSON.parse(localStorage.getItem("avocats"));
   const ville = localStorage.getItem("ville");
@@ -13,7 +13,7 @@ const Avocats = (props) => {
 
 
   return (
-    <div>
+    <div className="avocatsContainer">
       <h2> les avocat de Spécialité :{Specialite} dans la ville : <span>{ville}</span></h2>
       {data.map((avocat,index) =>{
         return(
@@ -22,7 +22,7 @@ const Avocats = (props) => {
         prenom= {avocat.Prénom}
         nom={avocat.Nom}
         adress={avocat.Adress}
-        link={"/avocat/"+data.id}
+        link={"/avocat/"+avocat.id}
         ></AvoatCarte>
         )
       })}

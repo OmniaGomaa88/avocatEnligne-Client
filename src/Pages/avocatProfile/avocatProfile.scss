@@ -1,0 +1,104 @@
+
+.avocatProfileContainer{
+    display:flex;
+    flex-direction:row;
+    position:absolute;
+    top:80%;
+    background-color:#eeecec;
+justify-content: space-evenly;
+
+}
+.avocatBack{
+    background-color:#D6CCB3;
+    height:300px;
+    position:relative;
+    z-index: 1;
+    
+}
+.rendezVousForm{
+    z-index: 2;
+}
+.container{
+display:flex;
+flex-direction:column;
+
+}
+.presAndDis{
+    display: flex;
+    flex-direction:column;
+}
+
+.presentation{
+    h2{
+        margin-left: 5%;
+    }
+}
+.presentation ,.content{
+    display:flex;
+    flex-direction:column;
+}
+.infos{
+    margin-left: 5%;
+}
+.presentation{
+    z-index: 2;
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+    position: relative;
+    padding-top: 5%;
+    h4{
+        margin-left: 10%;
+    }
+}
+.contact{
+    margin-left: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+   
+}
+.ContactCosial{
+       position: absolute;
+       top:2%;
+       right:0%;
+    width:30%;
+    .icon{
+        margin-left:5%
+    }
+}
+.photoAndInfo{
+    display:flex;
+    flex-direction: row;
+   
+}
+.presentation,.Disponibilité{
+margin-bottom:5% ;
+margin-left: 10%;
+border-radius: 5%;
+background-color:#FDF9EF;
+width: 70%
+}
+.Disponibilité{
+    padding-top: 5%;
+}
+.presText{
+    width:100%;
+}
+.RountGrand{
+     border-radius: 180%;
+    margin-left: 2%;
+    widows: 190px;
+   height:150px;
+}
+.certificats_Expériences{
+    z-index: 2;
+    width:50%;
+    
+    background-color:#FDF9EF;
+    margin-right: 5%;
+    h1{
+        background-color:#D6CCB3
+    }
+    p{
+        border: 1px solid #D6CCB3;
+    }
+}

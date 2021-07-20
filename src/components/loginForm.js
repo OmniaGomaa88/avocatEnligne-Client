@@ -8,7 +8,8 @@ const LoginForm = (props) => {
  
   const hendelClick = async (e)=>{
     let response = await props.service.Login(email, password)
-    console.log(response.data)
+    let userId = localStorage.setItem("userId",response.data.id)
+    // console.log(localStorage.getItem("userId"))
   }
 
   return (
