@@ -93,7 +93,7 @@ const AvocatProfile = (props) => {
                 </p>
               </div>
             </div>
-            <button className="RDVBtn">Randez-vous</button>
+            <Link to={"/rendezVous/"+id}><button className="RDVBtn">Randez-vous</button></Link>
             <div className="Disponibilité">
               <h4>
                 ___________________________Disponibilité____________________________

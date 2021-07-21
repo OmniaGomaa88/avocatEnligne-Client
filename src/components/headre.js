@@ -43,6 +43,9 @@ const Header = (props) => {
       console.log(error);
     }
   };
+  const logout=()=>{
+    localStorage.removeItem("token")
+  }
   useEffect(() => {
     getVills();
   }, []);
@@ -61,6 +64,9 @@ const Header = (props) => {
             <li className="navBarItem">
               <Link to="/signup">Enregistre</Link>
             </li>
+          <li onClick={()=>logout}>
+            logOut
+          </li>
           </ul>
         </nav>
       
