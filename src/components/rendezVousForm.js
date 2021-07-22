@@ -13,9 +13,9 @@ const RendezVousForm = (props) => {
  const hendelClick = async ()=>{
   try{
    let  avocatId= props.avocatId
-   let  clientId= props.clientId
+  //  let  clientId= props.clientId
 
-    let response = await rendezVousService.addRendezVous(client_situation, date, heure ,avocatId,clientId)
+    let response = await rendezVousService.addRendezVous(client_situation, date, heure ,avocatId)
    console.log("hi")
    console.log(response)
   }

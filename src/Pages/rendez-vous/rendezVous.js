@@ -6,12 +6,12 @@ import RendezVousForm from "../../components/rendezVousForm"
 const RendeVous = (props) => {
   const id = props.match.params.id;
   console.log("avocat id is",id)
-  const clientId= localStorage.getItem("userId");
+  // const clientId= localStorage.getItem("userId");
   console.log("clientId",localStorage.getItem("userId"))
     return (
       <div>
     
-    <RendezVousForm avocatId={id} clientId={clientId} ></RendezVousForm>
+    <RendezVousForm avocatId={id} ></RendezVousForm>
     </div>
     )
   
