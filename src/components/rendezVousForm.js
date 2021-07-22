@@ -7,16 +7,15 @@ const RendezVousForm = (props) => {
   const [heure, setHeure] = useState("");
   const [error, setError] = useState(false);
 
-const avocatId=0
-const clientId=0
+
    
  // handelClick for rendezVous formImage
- const hendelClick = async (avocatId,clientId)=>{
-   avocatId= props.avocatId
-   clientId= props.clientId
+ const hendelClick = async ()=>{
   try{
+   let  avocatId= props.avocatId
+   let clientId= props.clientId
     let response = await rendezVousService.addRendezVous(client_situation, date, heure ,avocatId,clientId)
-    console.log(client_situation, date, heure ,avocatId,clientId)
+   console.log("hi")
   }
   catch(error){
     setError(error)
@@ -49,7 +48,7 @@ const clientId=0
                   <input onChange={(e) => setHeure(e.target.value)}></input>
                 </div>
               </div>
-              <button className="RDVBtn" onClick={() => hendelClick(avocatId,clientId)}>
+              <button className="RDVBtn" onClick={() => hendelClick()}>
                 Submit
               </button>
             </div>

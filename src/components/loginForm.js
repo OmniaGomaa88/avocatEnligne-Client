@@ -8,12 +8,13 @@ const LoginForm = (props) => {
  
   const hendelClick = async (e)=>{
     let response = await props.service.Login(email, password)
-    if(response.data.success){
+   
       localStorage.setItem('token', response.data.token);
-      let userId = localStorage.setItem("userId",response.data.id)
-       props.history.push('/rendezVous');
-      }
-    
+      localStorage.setItem('userId',response.data.id);
+     
+      
+      
+      console.log("userId",localStorage.getItem("userId"))
     // console.log(localStorage.getItem("userId"))
   }
 

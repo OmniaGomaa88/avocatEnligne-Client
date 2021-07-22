@@ -43,9 +43,11 @@ const Header = (props) => {
       console.log(error);
     }
   };
-  const logout=()=>{
-    localStorage.removeItem("token")
-  }
+  const logout = (e) => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userId");
+    console.log("by");
+  };
   useEffect(() => {
     getVills();
   }, []);
@@ -64,12 +66,9 @@ const Header = (props) => {
             <li className="navBarItem">
               <Link to="/signup">Enregistre</Link>
             </li>
-          <li onClick={()=>logout}>
-            logOut
-          </li>
+            <button onClick={(e) => logout(e)}>logOut</button>
           </ul>
         </nav>
-      
       </div>
       <div
         className="backGround"
@@ -105,9 +104,11 @@ const Header = (props) => {
               </option>
             ))}
           </select>
-          <Link to="/avocats" >  <button className="searchBtn" onClick={(e) => handleClick(e)}>
-           Search
-          </button>
+          <Link to="/avocats">
+            {" "}
+            <button className="searchBtn" onClick={(e) => handleClick(e)}>
+              Search
+            </button>
           </Link>
         </div>
       </div>
