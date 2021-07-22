@@ -25,7 +25,7 @@ function App() {
           <Route exact path="/avocats" component={Avocats}/>
           <Route exact path="/avocat/:id" component={AvocatProfile}/>
           <Auth.Provider value={{isAuthenticated,setIsAuthenticated}}>
-          <Route   exact path="/rendezVous/:id" component={RendeVous} />
+          <AuthenticaRoute    path="/rendezVous/:id" component={RendeVous} />
           </Auth.Provider>
         </Switch>
      
