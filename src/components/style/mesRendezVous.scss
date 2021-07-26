@@ -1,0 +1,18 @@
+.rendezVousContainer{
+    display:flex;
+    flex-direction:column;
+    padding-top: 5%;
+}
+.rendezVousHeader{
+    background-color:#545454;
+    pre{
+        color:white
+    }
+}
+strong{
+    margin-right: 2%;
+}
+.rendezVous{
+    display: flex;
+    flex-direction:column
+}

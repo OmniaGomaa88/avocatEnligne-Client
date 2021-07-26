@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import AvoatCarte from '../../components/avocatCart'
+import AvocatCarte from '../../components/avocatCart'
 import './avocats.scss'
 const Avocats = (props) => {
   const data = JSON.parse(localStorage.getItem("avocats"));
@@ -17,13 +17,13 @@ const Avocats = (props) => {
       <h2> les avocat de Spécialité :{Specialite} dans la ville : <span>{ville}</span></h2>
       {data.map((avocat,index) =>{
         return(
-        <AvoatCarte
+        <AvocatCarte
         index={index}
         prenom= {avocat.Prénom}
         nom={avocat.Nom}
         adress={avocat.Adress}
         link={"/avocat/"+avocat.id}
-        ></AvoatCarte>
+        ></AvocatCarte>
         )
       })}
       

@@ -5,9 +5,12 @@ import {Route} from 'react-router-dom'
 
 const AuthenticaRoute = ({path, component})=>{
     const{isAuthenticated}= useContext(Auth)
+    
     return isAuthenticated?(
+       
         <Route exact path={path} component={component}/>
+        
     ):(
-        <Redirect to ='/' /> )
+        <Redirect to ='/Login' /> )
 }
 export default AuthenticaRoute

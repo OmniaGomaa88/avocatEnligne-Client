@@ -4,13 +4,13 @@ header {
 .nav {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  // justify-content: space-between;
   background-color: #545454;
 }
 .navBar {
   display: flex;
   flex-direction: row;
-  margin-right: 10%;
+ 
 }
 .navBarItem {
   list-style: none;
@@ -18,14 +18,15 @@ header {
 }
 a {
   text-decoration: none;
+  color: #545454;
 }
 
 .navBarItem {
-  margin-right: 5%;
   margin-left: 5%;
-
+ 
+padding:10%;
   margin-top: 5%;
-  background-color: white;
+  background-color: #aba18b;
 }
 .backGround {
   background-size: cover;

@@ -1,37 +1,51 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import avocatService from "../../services/Avocat"
 import { useEffect, useState } from "react";
+import rendezVousService from "../services/rendes_Vous";
+import clientService from "../services/client";
 import Facebook from "@material-ui/icons/Facebook";
 import Instagram from "@material-ui/icons/Instagram";
 import Twitter from "@material-ui/icons/Twitter";
-import avocatImgProfile from "../../assets/imges/profileAvatar.jpg";
+import avocatImgProfile from "../assets/imges/profileAvatar.jpg";
 import Email from "@material-ui/icons/Email";
 import Phone from "@material-ui/icons/Phone";
 import LocationOnone from "@material-ui/icons/LocationOn";
 import Euro from "@material-ui/icons/Euro";
-import "../../components/style/avocatCart.scss";
-import "./avocatProfile.scss";
-import DisponibleTable from "../../components/disponibleTable";
-const AvocatProfile = (props) => {
-  const id = props.match.params.id;
+import MesRendezVous from "../components/mesRendezVous"
+// import "../../components/style/avocatCart.scss";
+// import "./avocatProfile.scss";
+ import DisponibleTable from "../components/disponibleTable";
+const ClientCompt = (props) => {
   const [error, setError] = useState(false);
-  const [avocat, setAvocat] = useState([]);
-  
+  const [rendezVous, setRendezVous] = useState([]);
+  const [clientData, setClietnData] = useState([]);
+ 
 
-  const getAvocatById = async (props) => {
-    console.log(id);
+  const getClientRedezVous = async (props) => {
     try {
-      const avocatData = await avocatService.getById(id);
-      setAvocat(avocatData.data.result[0]);
+      const rendezVousData = await rendezVousService.getClientRedezVous();
+      setRendezVous(rendezVousData.data.result);
+    } catch (error) {
+      setError(true);
+    }
+  };
+  const getClientData = async (props) => {
+    try {
+      const clientData = await clientService.getrUserData();
+      setClietnData(clientData.data.result[0]);
     } catch (error) {
       setError(true);
     }
   };
   useEffect(() => {
-    getAvocatById();
+    getClientRedezVous();
   }, []);
-  console.log(avocat);
+  useEffect(() => {
+    getClientData();
+  }, []);
+  console.log(rendezVous);
+  console.log(clientData);
+
   return (
     <div className="avocatContainer">
       <div className="avocatBack"></div>
@@ -50,24 +64,22 @@ const AvocatProfile = (props) => {
               <div className="infos">
                 <p>
                   <strong>
-                    {avocat.Prénom} {avocat.Nom}
+                    {clientData.Prénom} {clientData.Nom}
                   </strong>{" "}
                 </p>
                 <p>
                   <LocationOnone></LocationOnone>
-                  {avocat.Adress}
+                  {clientData.Adress}
                 </p>
-                <p className="presText">{avocat.Presentation}</p>
+                <p className="presText">{clientData.Presentation}</p>
                 <p className="horaire">
                   {" "}
-                  <strong>Honoraire:</strong> {avocat.Honorare}
+                  <strong>Honoraire:</strong> {clientData.Honorare}
                   <Euro></Euro>
                 </p>
               </div>
             </div>
-            <h4>
-              ___________________________Contacts______________________
-            </h4>
+            <h4>___________________________Contacts_______________________</h4>
             <div className="contact">
               <div>
                 <p>
@@ -75,48 +87,42 @@ const AvocatProfile = (props) => {
                     <Phone></Phone>
                     Telephone:
                   </strong>{" "}
-                  {avocat.Telephone}
+                  {clientData.Telephone}
                 </p>
                 <p>
                   <strong>
                     <Email></Email>
                     Email:{" "}
                   </strong>
-                  {avocat.Email}
+                  {clientData.Email}
                 </p>
               </div>
             </div>
-            {/* botton vers page rendezVous */}
-            <Link to={"/rendezVous/"+id}>
-              <button className="RDVBtn">Randez-vous</button>
-            </Link>
             <div className="Disponibilité">
-              <h4>
-                __________________Disponibilité____________________
-              </h4>
+              <h4>__________________Disponibilité___________________</h4>
               <DisponibleTable></DisponibleTable>
             </div>
           </div>
         </div>
         <div className="Aside">
-          <div className="certificats">
-            <h1>Certificats</h1>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-          </div>
-          <div className="Expériences">
-            <h1>Expériences</h1>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-          </div>
+          <h1> vos Rendez-vous</h1>
+          {rendezVous.map((item, index) => {
+            return (
+              <MesRendezVous
+                infosTitle="Avocat Information"
+                date={item.date.toString()}
+                Prenom={item.Prénom}
+                Nom={item.Nom}
+                Email={item.Email}
+                Telephone={item.Telephone}
+                client_situation={item.client_situation}
+              />
+            );
+          })}
         </div>
       </div>
     </div>
   );
 };
 
-export default AvocatProfile;
+export default ClientCompt;

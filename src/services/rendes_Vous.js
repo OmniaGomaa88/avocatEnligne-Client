@@ -6,5 +6,11 @@ const rendezVousService = {
             client_situation, date, heure, withCredentials:true,
         });
       },
+      getClientRedezVous: async () => {
+        return await api.get(`/client/RendezVous`)
+      },
+      getAvocatRedezVous: async () => {
+        return await api.get(`/RendezVous`)
+      },
 };
 export default rendezVousService;

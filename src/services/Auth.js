@@ -1,6 +1,11 @@
 export function hasAuthenticated(){
     if (localStorage.getItem('token'))
-    {   return true;
+
+    {  
+        console.log("token true")
+        return true;
+        
+
      } 
      return false
 }

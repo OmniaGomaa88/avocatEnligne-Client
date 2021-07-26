@@ -37,7 +37,10 @@ const avocatService = {
     return await api.get(`avocats/${ville}/${Specialite}`,);
   },
   getById: async (id) => {
-    return await api.get(`/avocat/${id}`,);
+    return await api.get(`/avocat/${id}`);
+  },
+  getrUserData: async () => {
+    return await api.get(`/avocatprofile`);
   },
 };
 export default avocatService;

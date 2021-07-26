@@ -24,5 +24,8 @@ const clientService = {
       password,
     });
   },
+  getrUserData: async () => {
+    return await api.get(`/client`)
+  },
 };
 export default clientService;

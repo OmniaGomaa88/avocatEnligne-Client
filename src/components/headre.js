@@ -45,7 +45,8 @@ const Header = (props) => {
   };
   const logout = (e) => {
     localStorage.removeItem("token");
-    localStorage.removeItem("userId");
+    localStorage.removeItem("isClient");
+    localStorage.removeItem("isAvocat");
     console.log("by");
   };
   useEffect(() => {
@@ -66,7 +67,7 @@ const Header = (props) => {
             <li className="navBarItem">
               <Link to="/signup">Enregistre</Link>
             </li>
-            <button onClick={(e) => logout(e)}>logOut</button>
+            <button className="navBarItem" onClick={(e) => logout(e)}>logOut</button>
           </ul>
         </nav>
       </div>

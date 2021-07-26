@@ -5,7 +5,7 @@ import profilePhoto from "../assets/imges/profileAvatar.jpg";
 import { Link } from "react-router-dom";
 import './style/avocatCart.scss'
 import DisponibleTable from "../components/disponibleTable"
-const AvoatCarte = (props) => {
+const AvocatCarte = (props) => {
  
 
 
@@ -36,4 +36,4 @@ const AvoatCarte = (props) => {
   );
 };
 
-export default AvoatCarte;
+export default AvocatCarte;
