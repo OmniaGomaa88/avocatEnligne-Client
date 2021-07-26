@@ -1,8 +1,5 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import Facebook from "@material-ui/icons/Facebook";
-import Instagram from "@material-ui/icons/Instagram";
-import Twitter from "@material-ui/icons/Twitter";
 import "./style/header.scss";
 import headerImg from "../assets/imges/hEADER.png";
 import avocatService from "../services/Avocat";
@@ -12,8 +9,23 @@ import specialitService from "../services/Specialite";
 const Header = (props) => {
   const [ville, setVille] = useState("");
   const [Specialite, setSpecialite] = useState("");
+
   const [vills, setVills] = useState([]);
   const [specialits, setSpecialits] = useState([]);
+
+  const token = localStorage.getItem("token");
+
+  // element compt vers compt page si l'utilisteur est connécté  et connixion page si l'utilisteur n'est pas connecté
+  let connectElment = token ? (
+    <a href={`/compt`} className="navBarItem">
+      <p> Profile</p>
+    </a>
+  ) : (
+    <a href={"/Login"} className="navBarItem">
+      <p> Connexion</p>
+    </a>
+  );
+
   const handleClick = async (e) => {
     let response = await avocatService.getAll(ville, Specialite);
     let data = response.data.result;
@@ -21,8 +33,6 @@ const Header = (props) => {
     localStorage.setItem("avocats", JSON.stringify(data));
 
     console.log(data);
-
-    //  props.history.push('/avocats');
   };
   localStorage.setItem("vill", ville);
   localStorage.setItem("Specialite", Specialite);
@@ -58,19 +68,22 @@ const Header = (props) => {
 
   return (
     <header>
-      <div className="nav">
-        <nav>
-          <ul className="navBar">
-            <li className="navBarItem">
-              <Link to="/Login">Connexion</Link>
-            </li>
-            <li className="navBarItem">
-              <Link to="/signup">Enregistre</Link>
-            </li>
-            <button className="navBarItem" onClick={(e) => logout(e)}>logOut</button>
-          </ul>
-        </nav>
-      </div>
+      <nav>
+        <ul className="navBar">
+          <li className="navBarItem">{connectElment}</li>
+          <li className={token? "hidden" : "navBarItem"}>
+            <a href="/signup" >
+              <p> Enregistre</p>
+            </a>
+          </li>
+          <li className={ token? "navBarItem":"hidden"}>
+          <a  onClick={(e) => logout(e)}>
+            <p> logOut</p>
+          </a>
+          </li>
+        </ul>
+      </nav>
+
       <div
         className="backGround"
         style={{ backgroundImage: `url(${headerImg})` }}

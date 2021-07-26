@@ -11,15 +11,14 @@ import Email from "@material-ui/icons/Email";
 import Phone from "@material-ui/icons/Phone";
 import LocationOnone from "@material-ui/icons/LocationOn";
 import Euro from "@material-ui/icons/Euro";
-import MesRendezVous from "../components/mesRendezVous"
+import MesRendezVous from "../components/mesRendezVous";
 // import "../../components/style/avocatCart.scss";
 // import "./avocatProfile.scss";
- import DisponibleTable from "../components/disponibleTable";
+import DisponibleTable from "../components/disponibleTable";
 const ClientCompt = (props) => {
   const [error, setError] = useState(false);
   const [rendezVous, setRendezVous] = useState([]);
   const [clientData, setClietnData] = useState([]);
- 
 
   const getClientRedezVous = async (props) => {
     try {

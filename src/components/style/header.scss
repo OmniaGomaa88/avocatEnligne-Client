@@ -1,33 +1,30 @@
 header {
   position: relative;
 }
-.nav {
+nav {
   display: flex;
   flex-direction: row;
-  // justify-content: space-between;
+  justify-content: flex-end;
   background-color: #545454;
+  padding-right: 5%;
 }
 .navBar {
   display: flex;
   flex-direction: row;
- 
+
 }
 .navBarItem {
-  list-style: none;
-  margin-bottom: 10%;
+list-style: none;
+ margin-right: 5%;
+ margin-top: 5%;
+ background-color: #aba18b;
+ padding:3%
 }
 a {
   text-decoration: none;
   color: #545454;
 }
 
-.navBarItem {
-  margin-left: 5%;
- 
-padding:10%;
-  margin-top: 5%;
-  background-color: #aba18b;
-}
 .backGround {
   background-size: cover;
   background-attachment: fixed;
@@ -86,4 +83,10 @@ select {
     box-shadow: inset 150px 0 0 0 rgb(253, 250, 250);
     color: #aba18b;
   }
+}
+.show{
+  display: block;
+}
+.hidden{
+  display: none;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import avocatService from "../../services/Avocat"
+import avocatService from "../../services/Avocat";
 import { useEffect, useState } from "react";
 import Facebook from "@material-ui/icons/Facebook";
 import Instagram from "@material-ui/icons/Instagram";
@@ -17,8 +17,15 @@ const AvocatProfile = (props) => {
   const id = props.match.params.id;
   const [error, setError] = useState(false);
   const [avocat, setAvocat] = useState([]);
+  const token= localStorage.getItem("token");
+ 
+  // button rendezVous rediction vars rendezvous page si l'utilisteur connecté
+  // et si l'utilisteur connécté en tant que client
+ let rendezVousElment= token? <a href={`/rendezVous/${id}`}>
+  <button className="RDVBtn"> Prenez randez-vous</button>
+</a>:<a href={"/"}>
+  <p className=""> connectez vous pour prendre randez-vous</p></a>
   
-
   const getAvocatById = async (props) => {
     console.log(id);
     try {
@@ -65,9 +72,7 @@ const AvocatProfile = (props) => {
                 </p>
               </div>
             </div>
-            <h4>
-              ___________________________Contacts______________________
-            </h4>
+            <h4>___________________________Contacts______________________</h4>
             <div className="contact">
               <div>
                 <p>
@@ -87,13 +92,9 @@ const AvocatProfile = (props) => {
               </div>
             </div>
             {/* botton vers page rendezVous */}
-            <Link to={"/rendezVous/"+id}>
-              <button className="RDVBtn">Randez-vous</button>
-            </Link>
+          {rendezVousElment}
             <div className="Disponibilité">
-              <h4>
-                __________________Disponibilité____________________
-              </h4>
+              <h4>__________________Disponibilité____________________</h4>
               <DisponibleTable></DisponibleTable>
             </div>
           </div>

@@ -11,7 +11,6 @@ const Login = (props) => {
   const [error, setError] = useState(null);
   const [clicked, setClicked] = useState("Avocat");
   const handleClick = (tabName) => {
-  
     setClicked(tabName);
   };
 
