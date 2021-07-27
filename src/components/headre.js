@@ -6,23 +6,30 @@ import avocatService from "../services/Avocat";
 import { Link } from "react-router-dom";
 import villeService from "../services/ville";
 import specialitService from "../services/Specialite";
+import LockOpenOutlined from "@material-ui/icons/LockOpenOutlined";
+import AccountCircleOutlined from "@material-ui/icons/AccountCircleOutlined";
+import ExitToAppOutlined from "@material-ui/icons/ExitToAppOutlined";
+import PersonAddOutlined from "@material-ui/icons/PersonAddOutlined";
+import { useHistory } from "react-router-dom";
+
+
 const Header = (props) => {
   const [ville, setVille] = useState("");
   const [Specialite, setSpecialite] = useState("");
-
   const [vills, setVills] = useState([]);
   const [specialits, setSpecialits] = useState([]);
-
   const token = localStorage.getItem("token");
-
+  let history = useHistory();
   // element compt vers compt page si l'utilisteur est connécté  et connixion page si l'utilisteur n'est pas connecté
   let connectElment = token ? (
     <a href={`/compt`} className="navBarItem">
+      <AccountCircleOutlined></AccountCircleOutlined>
       <p> Profile</p>
     </a>
   ) : (
     <a href={"/Login"} className="navBarItem">
-      <p> Connexion</p>
+      <LockOpenOutlined></LockOpenOutlined>
+      <p>Connexion</p>
     </a>
   );
 
@@ -57,7 +64,7 @@ const Header = (props) => {
     localStorage.removeItem("token");
     localStorage.removeItem("isClient");
     localStorage.removeItem("isAvocat");
-    console.log("by");
+    history.push("/")
   };
   useEffect(() => {
     getVills();
@@ -71,15 +78,19 @@ const Header = (props) => {
       <nav>
         <ul className="navBar">
           <li className="navBarItem">{connectElment}</li>
-          <li className={token? "hidden" : "navBarItem"}>
-            <a href="/signup" >
+          <li className={token ? "hidden" : "navBarItem"}>
+            
+              <PersonAddOutlined></PersonAddOutlined>
+              <a href="/signup">
               <p> Enregistre</p>
             </a>
           </li>
-          <li className={ token? "navBarItem":"hidden"}>
-          <a  onClick={(e) => logout(e)}>
-            <p> logOut</p>
-          </a>
+          <li
+            className={token ? "navBarItem" : "hidden"}
+            onClick={(e) => logout(e)}
+          >
+            <ExitToAppOutlined></ExitToAppOutlined>
+            <p className="logOut">  logOut</p>
           </li>
         </ul>
       </nav>

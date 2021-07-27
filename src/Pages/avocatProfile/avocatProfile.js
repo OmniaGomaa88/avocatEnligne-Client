@@ -24,7 +24,7 @@ const AvocatProfile = (props) => {
  let rendezVousElment= token? <a href={`/rendezVous/${id}`}>
   <button className="RDVBtn"> Prenez randez-vous</button>
 </a>:<a href={"/"}>
-  <p className=""> connectez vous pour prendre randez-vous</p></a>
+  <p className="messageConnectez"> Connectez vous pour prendre randez-vous</p></a>
   
   const getAvocatById = async (props) => {
     console.log(id);

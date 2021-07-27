@@ -3,23 +3,43 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import rendezVousService from "../services/rendes_Vous";
 import avocatService from "../services/Avocat";
-import Facebook from "@material-ui/icons/Facebook";
-import Instagram from "@material-ui/icons/Instagram";
-import Twitter from "@material-ui/icons/Twitter";
 import avocatImgProfile from "../assets/imges/profileAvatar.jpg";
 import Email from "@material-ui/icons/Email";
 import Phone from "@material-ui/icons/Phone";
 import LocationOnone from "@material-ui/icons/LocationOn";
 import Euro from "@material-ui/icons/Euro";
-import "../Pages/compt/compt.scss"
-import MesRendezVous from "../components/mesRendezVous"
+import "../Pages/compt/compt.scss";
+import MesRendezVous from "../components/mesRendezVous";
 // import "../../components/style/avocatCart.scss";
 // import "./avocatProfile.scss";
- import DisponibleTable from "../components/disponibleTable";
+import DisponibleTable from "../components/disponibleTable";
 const AvocatCompt = (props) => {
   const [error, setError] = useState("");
   const [rendezVous, setRendezVous] = useState([]);
   const [avocatData, setAvocatData] = useState([]);
+  const [email, setEmail] = useState("");
+  const [adress, setAdress] = useState("");
+  const [presentation, setPresentation] = useState("");
+  const [telephone, setTelphone] = useState(0);
+  const [horaire, setHoraire] = useState(0);
+
+  const handleClick = async (event) => {
+    const Email = email;
+    const Adress = adress;
+    const Presentation = presentation;
+
+    try {
+      let response = await avocatService.updateData(
+        Email,
+        Adress,
+        Presentation
+      );
+    } catch (error) {
+      setError(error);
+      console.log(error);
+    }
+  };
+
   const getAvocatRendezVous = async (props) => {
     try {
       const rendeVousData = await rendezVousService.getAvocatRedezVous();
@@ -32,6 +52,10 @@ const AvocatCompt = (props) => {
     try {
       const avocatData = await avocatService.getrUserData();
       setAvocatData(avocatData.data.result[0]);
+      setEmail(avocatData.data.result[0].Email);
+      setAdress(avocatData.data.result[0].Adress);
+      setPresentation(avocatData.data.result[0].Presentation);
+      setTelphone(avocatData.data.result[0].Telephone);
     } catch (error) {
       setError(true);
     }
@@ -43,26 +67,20 @@ const AvocatCompt = (props) => {
   useEffect(() => {
     getAvocatData();
   }, []);
+
   console.log(rendezVous);
   console.log(avocatData);
 
   return (
-   
-    <div className="avocatContainer">
-      <div className="avocatBack"></div>
-      <div className="avocatProfileContainer">
-        <div className="presAndDis">
-          <div className="presentation">
-            <div className="ContactCosial">
-              Partager sur :
-              <Facebook className="icon" />
-              <Instagram className="icon" />
-              <Twitter className="icon" />
-            </div>
-            <div className="photoAndInfo">
+    <div>
+      <div></div>
+      <div>
+        <div>
+          <div>
+            <div>
               <img src={avocatImgProfile} className="RountGrand"></img>
 
-              <div className="infos">
+              <div>
                 <p>
                   <strong>
                     {avocatData.Prénom} {avocatData.Nom}
@@ -70,38 +88,48 @@ const AvocatCompt = (props) => {
                 </p>
                 <p>
                   <LocationOnone></LocationOnone>
-                  {avocatData.Adress}
+                  <input
+                    value={adress}
+                    onChange={(e) => setAdress(e.target.value)}
+                  />
                 </p>
-                <p className="presText">{avocatData.Presentation}</p>
-                <p className="horaire">
-                  {" "}
-                  <strong>Honoraire:</strong> {avocatData.Honorare}
+                <textarea
+                  value={presentation}
+                  onChange={(e) => setPresentation(e.target.value)}
+                />
+                <p>
+                  <button onClick={(event) => handleClick(event)}>
+                    Enregistre
+                  </button>
+                  <strong>Honoraire:</strong>
                   <Euro></Euro>
+                  <input
+                    value={horaire}
+                    onChange={(e) => setHoraire(e.target.value)}
+                  />
                 </p>
               </div>
             </div>
-            <h4>___________________________Contacts_______________________</h4>
-            <div className="contact">
+
+            <div>
               <div>
                 <p>
-                  <strong>
-                    <Phone></Phone>
-                    Telephone:
-                  </strong>{" "}
-                  {avocatData.Telephone}
+                  <strong>Telephone:</strong>
+                  <Phone></Phone>
+                  <input
+                    value={avocatData.Telephone}
+                    onChange={(e) => setTelphone(e.target.value)}
+                  />
                 </p>
                 <p>
-                  <strong>
-                    <Email></Email>
-                    Email:{" "}
-                  </strong>
-                  {avocatData.Email}
+                  <strong>Email: </strong>
+                  <Email></Email>
+                  <input
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
                 </p>
               </div>
-            </div>
-            <div className="Disponibilité">
-              <h4>__________________Disponibilité___________________</h4>
-              <DisponibleTable></DisponibleTable>
             </div>
           </div>
         </div>
@@ -123,8 +151,7 @@ const AvocatCompt = (props) => {
         </div>
       </div>
     </div>
-  )
-   
+  );
 };
 
 export default AvocatCompt;

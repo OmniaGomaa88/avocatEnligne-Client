@@ -16,13 +16,25 @@ nav {
 .navBarItem {
 list-style: none;
  margin-right: 5%;
- margin-top: 5%;
- background-color: #aba18b;
- padding:3%
+
+ color: #aba18b;
+ 
+ display : flex;
+ flex-direction: row;
+
 }
 a {
   text-decoration: none;
-  color: #545454;
+  color: #aba18b;
+  font-weight: bold;
+
+}
+li{
+  cursor: pointer;
+ 
+}
+.logOut{
+
 }
 
 .backGround {

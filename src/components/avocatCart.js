@@ -22,7 +22,7 @@ const AvocatCarte = (props) => {
            <div className="AdressAndRendezVous">
                <p>{props.adress}</p>
                <Link to={props.link}>
-               <button className="RDVBtn">Rendez-Vous</button>
+               <button className="RDVBtn">Voir le profile </button>
                    </Link>  
               
            </div>

@@ -11,7 +11,9 @@ const LoginForm = (props) => {
     let response = await props.service.Login(email, password);
     localStorage.setItem("token", response.data.token);
     localStorage.setItem("isClient",response.data.isClient)
-    localStorage.setItem("isAvocat",response.data.isAvocat)
+    localStorage.setItem("isAvocat",response.data.isAvocat) 
+      localStorage.setItem("userName",response.data.prenom)
+   console.log(response.data)
   console.log("isClient?",localStorage.getItem("isClient"));
   console.log("isAvocat?",localStorage.getItem("isAvocat"));
 
