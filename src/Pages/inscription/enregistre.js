@@ -2,7 +2,7 @@ import React from "react";
 import EnregistreForm from "../../components/enregisterAvocatForm";
 import ClientEnregistreForm from "../../components/enregisterClientForm";
 import { useRef, useEffect, useState, useContext } from "react";
-import Male_Lawyer_Reading_Img from "../../assets/imges/Male_Lawyer_Reading .png";
+import Male_Lawyer_Reading_Img from "../../assets/imges/maleLawyer.png";
 import "../../components/style/form.scss"
 import "./enregistre.scss";
 const Enregistre = (props) => {

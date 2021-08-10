@@ -3,7 +3,7 @@ import LoginForm from "../../components/loginForm";
 import { useState } from "react";
 import "../../components/style/form.scss";
 import "../../Pages/inscription/enregistre.scss";
-import client_avec_avocat_Img from "../../assets/imges/clientEnrigster.jpg";
+import client_avec_avocat_Img from "../../assets/imges/unnamed.png";
 import Male_Lawyer_Img from "../../assets/imges/online-avocat.jpeg";
 import avocatService from "../../services/Avocat";
 import clientService from "../../services/client";

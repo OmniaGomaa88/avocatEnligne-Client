@@ -1,6 +1,11 @@
 
 .Home{
     margin: 0;
+    background-color: #E8E8E8;
+    h2{
+        color: #545454;
+        font-size:40px
+    }
    
 }
 .servicesContainer {
@@ -10,11 +15,8 @@
     align-items: center;
     margin-top: 5%;
     padding-top: 15%;
-    background-color: #E8E8E8;
-    h2{
-        color: #545454;
-        font-size:40px
-    }
+  
+  
 }
 .services{
    
@@ -31,11 +33,67 @@
     flex-direction: column;
     justify-content:center;
     // width:70%;
-    border:2px solid red;
+   
     margin-left: 5%;
    text-align: center;
 }
 .servicesIconsStyle{
     margin-left: 25%;
     width: 30%;
+}
+.clientServicesContainer{
+    position: relative;
+    width: 100%;
+    height: 600px;
+    margin-top: 15%;
+   
+    img{
+        width: 40%;
+z-index: 1;
+        position: absolute;
+        top:0;
+        left: 8%;
+    };
+    .clientServiceTitle{
+        position: absolute;
+        top:20%;
+        left: 50%;
+    };
+    .clientServiceTexte{
+        position: absolute;
+        top:90%;
+        left: 35%;
+        width:40%;
+        // height: 200px;
+       background-color: #FDF9EF;
+       font-size:2em;
+     padding-left: 5%;
+       padding-top: 5%;
+       font-family: 'Times New Roman', Times, serif;
+
+    }
+}
+.createComptBtn{
+    position: absolute;
+    top:80%;
+    left: 50%;
+    margin-top: 15%;
+    color: #FDF9EF;
+    border: 2px solid #979793;
+    background-color: #aba18b;
+    border-radius: 5%;
+    font-weight: bold;
+    width: auto;
+    height: 50px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    box-shadow: inset 0 0 0 0 rgb(177, 174, 174);
+    font-size: 20px;
+    transition: ease-out 0.4s;
+    outline: none;
+    cursor: pointer;
+  
+    &:hover {
+      box-shadow: inset 200px 0 0 0 rgb(253, 250, 250);
+      color: #aba18b;
+    }
 }
