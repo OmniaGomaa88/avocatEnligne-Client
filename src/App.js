@@ -12,6 +12,7 @@ import { useState } from "react";
 import AuthenticaRoute from "./components/AuthenticatRoute";
 import Compt from './Pages/compt/compt'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Footer from "./components/footer"
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(hasAuthenticated());
   return (
@@ -19,18 +20,19 @@ function App() {
       <Header></Header>
 
       <Switch>
-        <Auth.Provider value={{ isAuthenticated, setIsAuthenticated }}>
+       
           <Route exact path="/" component={Home} />
-          <Route exact path="/signup" component={Enregistre} />
-
+          <Route exact path="/signup" component={Enregistre}/>
           <Route exact path="/Login" component={Login} />
           <Route exact path="/avocats" component={Avocats} />
           <Route exact path="/avocat/:id" component={AvocatProfile} />
+          <Auth.Provider value={{ isAuthenticated, setIsAuthenticated }}>
           <AuthenticaRoute  path="/rendezVous/:id" component={RendeVous} />
           <AuthenticaRoute  path="/compt" component={Compt} />
 
         </Auth.Provider>
       </Switch>
+      <Footer></Footer>
     </Router>
   );
 }

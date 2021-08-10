@@ -10,8 +10,10 @@ import LockOpenOutlined from "@material-ui/icons/LockOpenOutlined";
 import AccountCircleOutlined from "@material-ui/icons/AccountCircleOutlined";
 import ExitToAppOutlined from "@material-ui/icons/ExitToAppOutlined";
 import PersonAddOutlined from "@material-ui/icons/PersonAddOutlined";
+import wavesImage from "../assets/imges/wave.svg"
 import { useHistory } from "react-router-dom";
-
+import LocationOnone from "@material-ui/icons/LocationOn";
+import Work from "@material-ui/icons/Work";
 
 const Header = (props) => {
   const [ville, setVille] = useState("");
@@ -36,10 +38,7 @@ const Header = (props) => {
   const handleClick = async (e) => {
     let response = await avocatService.getAll(ville, Specialite);
     let data = response.data.result;
-    // loclaStorage de le recherch
     localStorage.setItem("avocats", JSON.stringify(data));
-
-    console.log(data);
   };
   localStorage.setItem("vill", ville);
   localStorage.setItem("Specialite", Specialite);
@@ -64,7 +63,7 @@ const Header = (props) => {
     localStorage.removeItem("token");
     localStorage.removeItem("isClient");
     localStorage.removeItem("isAvocat");
-    history.push("/")
+    history.push("/");
   };
   useEffect(() => {
     getVills();
@@ -79,9 +78,8 @@ const Header = (props) => {
         <ul className="navBar">
           <li className="navBarItem">{connectElment}</li>
           <li className={token ? "hidden" : "navBarItem"}>
-            
-              <PersonAddOutlined></PersonAddOutlined>
-              <a href="/signup">
+            <PersonAddOutlined></PersonAddOutlined>
+            <a href="/signup">
               <p> Enregistre</p>
             </a>
           </li>
@@ -90,23 +88,33 @@ const Header = (props) => {
             onClick={(e) => logout(e)}
           >
             <ExitToAppOutlined></ExitToAppOutlined>
-            <p className="logOut">  logOut</p>
+            <p className="logOut"> logOut</p>
           </li>
         </ul>
       </nav>
 
       <div
         className="backGround"
-        style={{ backgroundImage: `url(${headerImg})` }}
+        style={{
+          backgroundImage: `linear-gradient(to right, rgba(232,232,232, 
+          0.534), rgba(180,160,122, 0.6),rgba(240,214,165, 0.6)),url(${headerImg}) `,
+        }}
       >
+        <div className="HeaderText">
+          <h1>Avocat enligne</h1>
+          <p>Trouvez un avoca partout en France, par domaine de compétence
+          </p>
+         
+        </div>
         <div className="SearchBar">
+      
           <select
             name="Ville"
             className="select"
             onChange={(e) => setVille(e.target.value)}
           >
             <option value="Choisissez votre ville *">
-              Choissez votre ville
+              Sélectionnez une ville
             </option>
             {vills.map((vill, index) => (
               <option key={index} value={vill.nom}>
@@ -114,14 +122,14 @@ const Header = (props) => {
               </option>
             ))}
           </select>
-
+  
           <select
             className="select"
             name="Specialite"
             onChange={(e) => setSpecialite(e.target.value)}
           >
             <option value="Choisissez votre Spécialité">
-              Choissez votre Spécialité
+            Sélectionnez une Spécialité
             </option>
             {specialits.map((specialit, index) => (
               <option key={index} value={specialit.nom}>
@@ -136,6 +144,7 @@ const Header = (props) => {
             </button>
           </Link>
         </div>
+<img src={wavesImage} className="wave"></img>
       </div>
     </header>
   );

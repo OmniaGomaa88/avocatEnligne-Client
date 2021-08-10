@@ -10,8 +10,7 @@ import LocationOnone from "@material-ui/icons/LocationOn";
 import Euro from "@material-ui/icons/Euro";
 import "../Pages/compt/compt.scss";
 import MesRendezVous from "../components/mesRendezVous";
-// import "../../components/style/avocatCart.scss";
-// import "./avocatProfile.scss";
+
 import DisponibleTable from "../components/disponibleTable";
 const AvocatCompt = (props) => {
   const [error, setError] = useState("");
@@ -64,13 +63,12 @@ const AvocatCompt = (props) => {
   useEffect(() => {
     getAvocatRendezVous();
   }, []);
+
+
+
   useEffect(() => {
     getAvocatData();
   }, []);
-
-  console.log(rendezVous);
-  console.log(avocatData);
-
   return (
     <div>
       <div></div>

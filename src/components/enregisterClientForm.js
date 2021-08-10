@@ -86,7 +86,11 @@ const ClientEnregistreForm = (props) => {
             <button onClick={(event) => handleClick(event)} className="subBtn">
             Enregistre
           </button>
+          <a className="connixion"
+        href="/Login"
+        >J'ai déja un compt</a>
         </div>
+       
       </div>
     </div>
     </div>

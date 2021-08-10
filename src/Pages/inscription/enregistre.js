@@ -34,9 +34,7 @@ const Enregistre = (props) => {
         <ClientEnregistreForm className={clicked == "Client" ? "show" : "hidden"} />
         </div>
         <div />
-        <a
-        href="/Login"
-        >J'ai déJa compt</a>
+       
       </div>
      
     

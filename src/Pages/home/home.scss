@@ -1,0 +1,41 @@
+
+.Home{
+    margin: 0;
+   
+}
+.servicesContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    padding-top: 15%;
+    background-color: #E8E8E8;
+    h2{
+        color: #545454;
+        font-size:40px
+    }
+}
+.services{
+   
+    display: flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items: center;
+   
+   
+}
+
+.Service{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    // width:70%;
+    border:2px solid red;
+    margin-left: 5%;
+   text-align: center;
+}
+.servicesIconsStyle{
+    margin-left: 25%;
+    width: 30%;
+}

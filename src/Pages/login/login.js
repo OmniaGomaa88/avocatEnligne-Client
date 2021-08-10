@@ -7,13 +7,13 @@ import client_avec_avocat_Img from "../../assets/imges/clientEnrigster.jpg";
 import Male_Lawyer_Img from "../../assets/imges/online-avocat.jpeg";
 import avocatService from "../../services/Avocat";
 import clientService from "../../services/client";
+
 const Login = (props) => {
   const [error, setError] = useState(null);
   const [clicked, setClicked] = useState("Avocat");
   const handleClick = (tabName) => {
     setClicked(tabName);
   };
-
   return (
     <div className="container">
       <div className="Form">

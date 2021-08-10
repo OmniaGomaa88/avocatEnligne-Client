@@ -11,6 +11,6 @@ const AuthenticaRoute = ({path, component})=>{
         <Route exact path={path} component={component}/>
         
     ):(
-        <Redirect to ='/Login' /> )
+        <Redirect to ='/' /> )
 }
 export default AuthenticaRoute

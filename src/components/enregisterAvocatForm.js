@@ -55,10 +55,6 @@ const EnregistreForm = (props) => {
     const Specialite = state.Specialite;
     const Honorare = state.Honorare;
     const image = state.image;
-
-    console.log("state", state);
-    console.log("ville", Ville);
-
     try {
       const addNewAvocat = await avocatService.addNewAvocat(
         prenom,
@@ -78,6 +74,8 @@ const EnregistreForm = (props) => {
       setError(error);
     }
   };
+
+
   console.log(error);
 
   // fnction to get all ville
@@ -155,7 +153,7 @@ const EnregistreForm = (props) => {
               <lable> Ville</lable>
               <select name="Ville" className="select" onChange={handleChange}>
                 <option value="Choisissez votre ville *">
-                  Choissez votre ville
+                Sélectionnez votre ville
                 </option>
                 {vills.map((ville, index) => (
                   <option key={index} value={ville.nom}>
@@ -180,7 +178,7 @@ const EnregistreForm = (props) => {
                 onChange={handleChange}
               >
                 <option value="Choisissez votre Spécialité">
-                  Choissez votre Spécialité
+                Sélectionnez votre Spécialité
                 </option>
                 {specialits.map((specialit, index) => (
                   <option key={index} value={specialit.nom}>
@@ -195,6 +193,7 @@ const EnregistreForm = (props) => {
               <input name="Honorare" onChange={handleChange} />
             </div>
           </div>
+          <div className="column">
           <div className="image">
             <div>
               <AddAPhoto></AddAPhoto>
@@ -205,7 +204,13 @@ const EnregistreForm = (props) => {
           <button onClick={(event) => handleClick(event)} className="subBtn">
             Enregistre
           </button>
+          <a className="connixion"
+        href="/Login"
+        >J'ai déja un compt</a>
         </div>
+          </div>
+         
+        
       </div>
     </div>
   );

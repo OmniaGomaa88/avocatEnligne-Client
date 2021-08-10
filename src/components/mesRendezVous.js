@@ -1,25 +1,42 @@
 import { useState, React } from "react";
 import "./style/mesRendezVous.scss";
+import "../components/style/form.scss"
 const MesRendezVous = (props) => {
+  const [clicked, setClicked] = useState(null);
+  const handleClick=(tabName)=>{
+    if(clicked==null){
+     setClicked(tabName)
+    }else{
+      setClicked(null)
+    }
+  
+  }
+
   return (
     <div>
       <div className="rendezVousContainer">
-        <div className="rendezVousHeader">
+        <div className="rendezVousHeader"
+        onClick={(event) => handleClick('clicked')}
+        >
           <p>
-            <strong>date</strong>
+            <strong>Date</strong>
             {props.date}
           </p>
         </div>
-        <div className="rendezVous">
+        <div className={(clicked == 'clicked') ?"rendezVous":"hide"}>
           <div className="Infos">
             <p>
               {" "}
-              <strong>{props.infosTitle}</strong>
+              <strong >{props.infosTitle}</strong>
             </p>
             <p>
               {" "}
               <strong> Prénom:</strong>
               {props.Prenom} <strong> Nom:</strong> {props.Nom}{" "}
+            </p>
+            <p>
+              {" "}
+              <strong> Adresse:</strong>{props.Adress} 
             </p>
             <p>
               {" "}
@@ -29,16 +46,20 @@ const MesRendezVous = (props) => {
               {" "}
               <strong>Telephone</strong> {props.Telephone}
             </p>
-          </div>
-          <div className="situation">
+            <div className="situation">
             <p>
               {" "}
               <strong> Situation</strong> {props.client_situation}
             </p>
+            <button  className="AnnulBtn">
+              Annuler
+            </button>
           </div>
+          </div>
+        
         </div>
       </div>
-      ;
+      
     </div>
   );
 };

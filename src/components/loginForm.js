@@ -12,15 +12,6 @@ const LoginForm = (props) => {
     localStorage.setItem("token", response.data.token);
     localStorage.setItem("isClient",response.data.isClient)
     localStorage.setItem("isAvocat",response.data.isAvocat) 
-      localStorage.setItem("userName",response.data.prenom)
-   console.log(response.data)
-  console.log("isClient?",localStorage.getItem("isClient"));
-  console.log("isAvocat?",localStorage.getItem("isAvocat"));
-
-
-
-     
-    // console.log(localStorage.getItem("userId"))
   };
 
   return (

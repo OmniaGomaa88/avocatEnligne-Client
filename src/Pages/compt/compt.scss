@@ -9,8 +9,30 @@ display: block;
 }
 .rendezVous{
     z-index: 2;
+   
+    h1{
+        background-color:#545454;
+        z-index:2
+    }
 }
-h1{
-    background-color:#545454;
-    z-index:2
+.Aside{
+    width: 30%;
+    margin-left:10%
+
 }
+.infos{
+    margin-top: 5%;
+    margin-left: 5%;
+    border: 2px solid #545454;
+    height: 300px;
+    width:500px;
+}
+.comptContainer{
+    display: flex;
+    flex-direction:row;
+    margin-top: 5%;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color:#e7e5e5
+}
+

@@ -4,7 +4,8 @@
     padding-top: 5%;
 }
 .rendezVousHeader{
-    background-color:#545454;
+    background-color:#aba18b;
+    color:#545454;
     pre{
         color:white
     }
@@ -15,4 +16,25 @@ strong{
 .rendezVous{
     display: flex;
     flex-direction:column
+}
+.Infos{
+    background-color: #FDF9EF;
+}
+.hide{
+display: none;
+}
+.AnnulBtn{
+    margin-bottom: 5%;
+    font-size: 20px;
+      margin-left: 20%;
+      color: rgb(43, 40, 40);
+      border: 2px solid #979793;
+      background-color: #aba18b;
+      font-weight: bold;
+      width: auto;
+      height: 30px;
+      max-height: 50px;
+      font-family: Georgia, "Times New Roman", Times, serif;
+      transition: ease-in 0.3s;
+      cursor: pointer;
 }

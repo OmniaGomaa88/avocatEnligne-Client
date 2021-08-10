@@ -12,20 +12,32 @@ import LocationOnone from "@material-ui/icons/LocationOn";
 import Euro from "@material-ui/icons/Euro";
 import "../../components/style/avocatCart.scss";
 import "./avocatProfile.scss";
+import AVOCATwOMAN from "../../assets/imges/AVOCATwOMAN.jpg";
 import DisponibleTable from "../../components/disponibleTable";
+import Français from "../../assets/imges/france.png";
+import Englishe from "../../assets/imges/united-kingdom.png";
+
 const AvocatProfile = (props) => {
   const id = props.match.params.id;
   const [error, setError] = useState(false);
   const [avocat, setAvocat] = useState([]);
-  const token= localStorage.getItem("token");
- 
+  const token = localStorage.getItem("token");
+
   // button rendezVous rediction vars rendezvous page si l'utilisteur connecté
   // et si l'utilisteur connécté en tant que client
- let rendezVousElment= token? <a href={`/rendezVous/${id}`}>
-  <button className="RDVBtn"> Prenez randez-vous</button>
-</a>:<a href={"/"}>
-  <p className="messageConnectez"> Connectez vous pour prendre randez-vous</p></a>
-  
+  let rendezVousElment = token ? (
+    <a href={`/rendezVous/${id}`}>
+      <button className="RDVBtn"> Prenez randez-vous</button>
+    </a>
+  ) : (
+    <a href={"/Login"}>
+      <p className="messageConnectez">
+        {" "}
+        Connectez vous pour prendre randez-vous
+      </p>
+    </a>
+  );
+
   const getAvocatById = async (props) => {
     console.log(id);
     try {
@@ -52,15 +64,20 @@ const AvocatProfile = (props) => {
               <Twitter className="icon" />
             </div>
             <div className="photoAndInfo">
-              <img src={avocatImgProfile} className="RountGrand"></img>
-
+              <div className="photoAndeLangue">
+                <img src={AVOCATwOMAN} className="RountGrand"></img>
+                <div>
+                  <img src={Français} className="langue"></img>
+                  <img src={Englishe} className="langue"></img>
+                </div>
+              </div>
               <div className="infos">
                 <p>
                   <strong>
                     {avocat.Prénom} {avocat.Nom}
                   </strong>{" "}
                 </p>
-                <p>
+                <p className="gray">
                   <LocationOnone></LocationOnone>
                   {avocat.Adress}
                 </p>
@@ -78,41 +95,23 @@ const AvocatProfile = (props) => {
                 <p>
                   <strong>
                     <Phone></Phone>
-                    Telephone:
                   </strong>{" "}
                   {avocat.Telephone}
                 </p>
                 <p>
                   <strong>
                     <Email></Email>
-                    Email:{" "}
                   </strong>
                   {avocat.Email}
                 </p>
               </div>
             </div>
             {/* botton vers page rendezVous */}
-          {rendezVousElment}
+            {rendezVousElment}
             <div className="Disponibilité">
               <h4>__________________Disponibilité____________________</h4>
               <DisponibleTable></DisponibleTable>
             </div>
-          </div>
-        </div>
-        <div className="Aside">
-          <div className="certificats">
-            <h1>Certificats</h1>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-          </div>
-          <div className="Expériences">
-            <h1>Expériences</h1>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
           </div>
         </div>
       </div>

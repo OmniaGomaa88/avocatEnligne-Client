@@ -6,9 +6,10 @@
   justify-content: center;
   font-size: 17px;
   font-weight: bold;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   border-radius: 10px;
   margin-bottom: 5%;
+  padding-top: 5%;
   // background-color: #e5e5e5;
 
   input {
@@ -82,7 +83,7 @@ textarea {
 .subBtn {
   margin-bottom: 5%;
 font-size: 20px;
-  margin-left: 30%;
+  margin-left: 20%;
   color: #d1d1c6;
   border: 2px solid #979793;
   background-color: rgb(43, 40, 40);
@@ -113,4 +114,10 @@ font-size: 20px;
   border-radius: 5%;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 
+}
+.connixion{
+  margin-left: 30%;
+  font-weight: bold;
+  font-size:20px;
+color:rgb(43, 40, 40)
 }

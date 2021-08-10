@@ -1,35 +1,51 @@
 // rendezVous container
-.RDVBtn{
-    margin-left: 10%;
-    color: black;
-    border: 2px solid #979793;
-    background-color: #aba18b;
-    border-radius: 5% ;
-    font-weight: bold;
-    width: 150px;
-  height:50px;
-  font-family: "montserrat",sans-serif;
+.RDVBtn {
+  // margin-right: 10%;
+  color: black;
+  border: 2px solid #777754;
+  background-color: #aba18b;
+  border-radius: 5%;
+  font-weight: bold;
+  width: 150px;
+  height: 50px;
+  font-family: "montserrat", sans-serif;
   cursor: pointer;
   box-shadow: inset 0 0 0 0 rgb(161, 143, 143);
-transition: ease-out 0.4s;
-outline: none;
+  transition: ease-out 0.4s;
+  outline: none;
   
 }
-.RDVContainer{
-  padding-top: 4%;
- 
+textarea{
+  width: 50%;
+}
+
+.RDVContainer {
+  padding-top: 5%;
   z-index: 2;
+  padding-left: 5%;
+  background-color: #dfdedb;
+  border: 2px solid #e4e1da;
+
 }
-.RDVBtn:hover{
-  color: white;
-  box-shadow:  150px 0 0 0 rgb(253, 250, 250);
-  box-shadow:  5px 5px rgb(133, 140, 145)
+.rendezVousForm{
+  background-color: #545454;
 }
-.rendezVousFormHeader{
-  background-color:#545454;
+
+.RDVBtn:hover {
   color: white;
+  box-shadow: 150px 0 0 0 rgb(253, 250, 250);
+  box-shadow: 5px 5px rgb(133, 140, 145);
+}
+.rendezVousFormHeader {
+  background-color:#aba18b;
+    color:#545454;
+  font-size: 20px;
+  width: 50%;
+}
+.RNDText{
   font-size:20px;
+  font-weight: bold;
 }
-.RDVContainer{
-  background-color:#FDF9EF
+.date{
+  margin-bottom: 5%;
 }
