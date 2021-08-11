@@ -1,130 +1,126 @@
-
-.avocatProfileContainer{
-    display:flex;
- justify-content: center;
-    position:absolute;
-    top:80%;
-    background-color:#eeecec;
-    font-size:20px;
-    strong{
-        color:#aba18b;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-weight:bold;
-    }
-    .gray{
-color:#928c8c
-    }
-// justify-content: space-evenly;
-
+.avocatProfileContainer {
+  display: flex;
+  justify-content: center;
+//   position: absolute;
+//   top: 30%;
+padding-top:10%;
+  background-color: #eeecec;
+  font-size: 20px;
+  strong {
+    color: #aba18b;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+  }
+  .gray {
+    color: #928c8c;
+  }
+  // justify-content: space-evenly;
 }
-.avocatBack{
-    background-color:#aba18b;
-    height:300px;
-    position:relative;
-    z-index: 1;
-    
+.avocatBack {
+  background-color: #aba18b;
+  height: 300px;
+  position: relative;
+  z-index: 1;
 }
-.rendezVousForm{
-    z-index: 2;
+.rendezVousForm {
+  z-index: 2;
 }
-.container{
-display:flex;
-flex-direction:column;
-
+.container {
+  display: flex;
+  flex-direction: column;
 }
-.presAndDis{
-    display: flex;
-    flex-direction:column;
-    width:80%
-   
+.presAndDis {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
 }
-.checkIcon{
-    width: 20px;
+.checkIcon {
+  width: 20px;
 }
 
-.presentation{
-    h2{
-        margin-left: 5%;
-    }
-}
-.presentation ,.content{
-    display:flex;
-    flex-direction:column;
-}
-.infos{
-    // margin-left: 5%;
-}
-.presentation{
-    z-index: 2;
-    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
-    position: relative;
-    padding-top: 5%;
-    h4{
-        margin-left: 10%;
-    }
-}
-.contact{
+.presentation {
+  h2 {
     margin-left: 5%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-   
+  }
 }
-.ContactCosial{
-       position: absolute;
-       top:2%;
-       right:0%;
-    width:30%;
-    .icon{
-        margin-left:5%
-    }
+.presentation,
+.content {
+  display: flex;
+  flex-direction: column;
 }
-.langue{
-    width:15%;
-    margin-left:3%
-}
-.photoAndeLangue{
-    display:flex;
-    flex-direction: column;
-}
-.photoAndInfo{
-    display:flex;
-    flex-direction: row;
-   
-}
-.presentation,.Disponibilité{
-margin-bottom:5% ;
-margin-left: 10%;
-border-radius: 5%;
-background-color:#FDF9EF;
-width: 70%
-}
-.Disponibilité{
-    padding-top: 5%;
-}
-.presText{
-    width:100%;
-}
-.RountGrand{
-     border-radius: 180%;
-    margin-left: 2%;
-    width: 190px;
-   height:150px;
-}
-.Aside{
-    z-index: 2;
-    width:20%;
-   
-    margin-right: 5%;
 
-    // p{
-    //     border: 1px solid #D6CCB3;
-    // }
+.presentation {
+  z-index: 2;
+  box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
+  position: relative;
+  padding-top: 5%;
+  h4 {
+    margin-left: 10%;
+  }
 }
-.messageConnectez{
-    float:left;
+.contact {
+  margin-left: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.RDVBtn{
-    margin-left:50%;
-    width:auto
+.ContactCosial {
+  position: absolute;
+  top: 2%;
+  right: 0%;
+  width: 30%;
+  .icon {
+    margin-left: 5%;
+  }
+}
+.langue {
+  width: 15%;
+  margin-left: 3%;
+}
+.photoAndeLangue {
+  display: flex;
+  flex-direction: column;
+}
+.photoAndInfo {
+  display: flex;
+  flex-direction: row;
+}
+.presentation,
+.Disponibilité {
+  margin-bottom: 5%;
+  margin-left: 10%;
+  border-radius: 5%;
+  background-color: #fdf9ef;
+  width: 70%;
+}
+.Disponibilité {
+  padding-top: 5%;
+}
+.presText {
+  width: 100%;
+}
+.RountGrand {
+  border-radius: 180%;
+  margin-left: 2%;
+  width: 190px;
+  height: 150px;
+}
+.Aside {
+  z-index: 2;
+  width: 20%;
+
+  margin-right: 5%;
+
+  // p{
+  //     border: 1px solid #D6CCB3;
+  // }
+}
+.messageConnectez {
+  float: left;
+}
+.RDVBtn {
+  margin-left: 50%;
+  width: auto;
+}
+.avocatInfos {
 }

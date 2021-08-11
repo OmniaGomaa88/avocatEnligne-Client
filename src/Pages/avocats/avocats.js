@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import AvocatCarte from '../../components/avocatCart'
 import './avocats.scss'
+import NavBar from "../../components/navBar"
+import Recherche from "../../components/BarDerecherche"
 const Avocats = (props) => {
   const data = JSON.parse(localStorage.getItem("avocats"));
   const ville = localStorage.getItem("ville");
@@ -13,6 +15,9 @@ const Avocats = (props) => {
 
 
   return (
+   <div>
+     <NavBar></NavBar>
+   
     <div className="avocatsContainer">
       <h2> les avocat de Spécialité :{Specialite} dans la ville : <span>{ville}</span></h2>
       {data.map((avocat,index) =>{
@@ -28,6 +33,7 @@ const Avocats = (props) => {
       })}
       
        
+    </div>
     </div>
   );
 };

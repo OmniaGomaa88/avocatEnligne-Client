@@ -30,9 +30,14 @@ display: block;
 .comptContainer{
     display: flex;
     flex-direction:row;
-    margin-top: 5%;
+    padding-top: 15%;
+    padding-bottom: 15%;
     justify-content: space-evenly;
     align-items: center;
-    background-color:#e7e5e5
+    background-color:#e8e8e8
+
+}
+.avocatComptContainer{
+    background-color:#e8e8e8
 }
 

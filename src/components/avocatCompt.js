@@ -10,7 +10,7 @@ import LocationOnone from "@material-ui/icons/LocationOn";
 import Euro from "@material-ui/icons/Euro";
 import "../Pages/compt/compt.scss";
 import MesRendezVous from "../components/mesRendezVous";
-
+import NavBar from "../components/navBar";
 import DisponibleTable from "../components/disponibleTable";
 const AvocatCompt = (props) => {
   const [error, setError] = useState("");
@@ -64,15 +64,14 @@ const AvocatCompt = (props) => {
     getAvocatRendezVous();
   }, []);
 
-
-
   useEffect(() => {
     getAvocatData();
   }, []);
   return (
     <div>
+      <NavBar></NavBar>
       <div></div>
-      <div>
+      <div className="comptContainer">
         <div>
           <div>
             <div>
@@ -96,9 +95,6 @@ const AvocatCompt = (props) => {
                   onChange={(e) => setPresentation(e.target.value)}
                 />
                 <p>
-                  <button onClick={(event) => handleClick(event)}>
-                    Enregistre
-                  </button>
                   <strong>Honoraire:</strong>
                   <Euro></Euro>
                   <input
@@ -112,7 +108,6 @@ const AvocatCompt = (props) => {
             <div>
               <div>
                 <p>
-                  <strong>Telephone:</strong>
                   <Phone></Phone>
                   <input
                     value={avocatData.Telephone}
@@ -120,13 +115,15 @@ const AvocatCompt = (props) => {
                   />
                 </p>
                 <p>
-                  <strong>Email: </strong>
                   <Email></Email>
                   <input
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </p>
+                <button onClick={(event) => handleClick(event)}>
+                  Enregistre
+                </button>
               </div>
             </div>
           </div>

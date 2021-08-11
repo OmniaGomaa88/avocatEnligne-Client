@@ -1,99 +1,212 @@
-
-.Home{
-    margin: 0;
-    background-color: #E8E8E8;
-    h2{
-        color: #545454;
-        font-size:40px
-    }
-   
+.Home {
+  margin: 0;
+  background-color: #e8e8e8;
+  h2 {
+    color: #545454;
+    font-size: 40px;
+    font-weight: bold;
+  }
 }
 .servicesContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5%;
-    padding-top: 15%;
-  
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+  padding-top: 15%;
 }
-.services{
-   
-    display: flex;
-    flex-direction:row;
-    justify-content:center;
-    align-items: center;
-   
-   
+.services {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-.Service{
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    // width:70%;
-   
-    margin-left: 5%;
-   text-align: center;
-}
-.servicesIconsStyle{
-    margin-left: 25%;
-    width: 30%;
-}
-.clientServicesContainer{
-    position: relative;
-    width: 100%;
-    height: 600px;
-    margin-top: 15%;
-   
-    img{
-        width: 40%;
-z-index: 1;
-        position: absolute;
-        top:0;
-        left: 8%;
-    };
-    .clientServiceTitle{
-        position: absolute;
-        top:20%;
-        left: 50%;
-    };
-    .clientServiceTexte{
-        position: absolute;
-        top:90%;
-        left: 35%;
-        width:40%;
-        // height: 200px;
-       background-color: #FDF9EF;
-       font-size:2em;
-     padding-left: 5%;
-       padding-top: 5%;
-       font-family: 'Times New Roman', Times, serif;
+.Service {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // width:70%;
 
+  margin-left: 5%;
+  text-align: center;
+}
+.servicesIconsStyle {
+  margin-left: 25%;
+  width: 30%;
+}
+.clientServicesContainer {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  margin-top: 15%;
+
+  img {
+    width: 40%;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 8%;
+  }
+  .clientServiceTitle {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+  }
+  .clientServiceTexte {
+    position: absolute;
+    top: 90%;
+    left: 35%;
+    width: 50%;
+    height: 400px;
+    background-color: #fdf9ef;
+    font-size: 30px;
+    padding-left: 5%;
+    padding-top: 3%;
+    font-family: "Times New Roman", Times, serif;
+  }
+}
+.createClientBtn {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-top: 15%;
+  background-color: #aba18b;
+  color: #fdf9ef;
+  border: 2px solid #979793;
+
+  border-radius: 5%;
+  font-weight: bold;
+  width: auto;
+  height: 50px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  box-shadow: inset 0 0 0 0 rgb(177, 174, 174);
+  font-size: 20px;
+  transition: ease-out 0.4s;
+  outline: none;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: inset 200px 0 0 0 rgb(253, 250, 250);
+    color: #aba18b;
+  }
+}
+.createAvocatBtn {
+  position: absolute;
+  bottom: 5%;
+  left: 10%;
+  background-color: #545454;
+  color: #fdf9ef;
+  border: 2px solid #979793;
+
+  border-radius: 5%;
+  font-weight: bold;
+  width: auto;
+  height: 50px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  box-shadow: inset 0 0 0 0 rgb(177, 174, 174);
+  font-size: 20px;
+  transition: ease-out 0.4s;
+  outline: none;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: inset 300px 0 0 0 rgb(253, 250, 250);
+    color: #aba18b;
+  }
+}
+.avocatServicesContainer {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 30px;
+  color: #e8e8e8;
+  width: 100%;
+  font-family: "Times New Roman", Times, serif;
+  margin-top: 40%;
+  background-color: #aba18b;
+
+  padding-bottom: 5%;
+}
+.avocatServiceTexte {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding-left: 3%;
+}
+
+.temoignesContainer {
+  margin-top: 10%;
+  background-color: #fdf9ef;
+  display: flex;
+  flex-direction: column;
+
+  justify-content:space-evenly;
+  h1 {
+margin-left: 50%;
+    color: #aba18b;
+    font-size: 40px;
+  }
+}
+.temoingnes {
+  display: flex;
+  flex-direction: row;
+justify-content: space-evenly;
+}
+.temoingne {
+  position: relative;
+//   justify-content: center;
+//   align-items: center;
+height: 500px;
+  border: 2px solid #fdf9efa6;
+  .quote{
+      position: absolute;
+      bottom:0;
+      background-color:#fdf9efe1;
+      font-size: 20px;
+      font-family: 'Times New Roman', Times, serif;
+      color:#756e5e;
+  }
+  .more{
+      display: none;
+  }
+  &:hover .more{
+      display: inline;
+  }
+  img {
+    width: 400px;
+    height: 400px;
+  }
+
+}
+.nouveuxAvocatsContainer{
+    background-color:#aba18b;
+    display:flex;
+    flex-direction:column;
+    margin-top:20%;
+    padding-bottom:10%;
+    h1{
+        color:#545454;
+        margin-left: 40%;
+        margin-bottom: 5%;
     }
 }
-.createComptBtn{
-    position: absolute;
-    top:80%;
-    left: 50%;
-    margin-top: 15%;
-    color: #FDF9EF;
-    border: 2px solid #979793;
-    background-color: #aba18b;
-    border-radius: 5%;
-    font-weight: bold;
-    width: auto;
-    height: 50px;
-    font-family: Georgia, "Times New Roman", Times, serif;
-    box-shadow: inset 0 0 0 0 rgb(177, 174, 174);
-    font-size: 20px;
-    transition: ease-out 0.4s;
-    outline: none;
-    cursor: pointer;
-  
-    &:hover {
-      box-shadow: inset 200px 0 0 0 rgb(253, 250, 250);
-      color: #aba18b;
+.nouveuxAvocats{
+    display: flex;
+    flex-direction:row;
+    justify-content:space-evenly;
+}
+.nouveuxAvocat{
+    display:flex;
+    flex-direction: column;
+    width:200px;
+    height: 350px;
+    word-wrap: break-word;
+    align-items: center;
+    overflow: hidden;
+//    margin-left: 30%;
+    img{
+        width: 200px;
     }
 }

@@ -27,5 +27,10 @@ const clientService = {
   getrUserData: async () => {
     return await api.get(`/client`)
   },
+ annulerRendezVous: async (rendezVousId) => {
+    return await api.post(`/client/Annule/`,{
+      rendezVousId
+    })
+  },
 };
 export default clientService;

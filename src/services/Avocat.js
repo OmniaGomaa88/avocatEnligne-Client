@@ -49,5 +49,8 @@ const avocatService = {
       Email, Adress, Presentation
     });
   },
+  nouvexAvocat: async () => {
+    return await api.get(`/NouveauxAvocats`)
+  },
 };
 export default avocatService;

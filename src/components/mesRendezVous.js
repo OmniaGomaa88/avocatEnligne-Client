@@ -1,6 +1,7 @@
 import { useState, React } from "react";
 import "./style/mesRendezVous.scss";
 import "../components/style/form.scss"
+
 const MesRendezVous = (props) => {
   const [clicked, setClicked] = useState(null);
   const handleClick=(tabName)=>{
@@ -51,9 +52,7 @@ const MesRendezVous = (props) => {
               {" "}
               <strong> Situation</strong> {props.client_situation}
             </p>
-            <button  className="AnnulBtn">
-              Annuler
-            </button>
+           
           </div>
           </div>
         

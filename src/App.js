@@ -2,7 +2,6 @@ import "./assets/App.scss";
 import Enregistre from "./Pages/inscription/enregistre";
 import Home from "./Pages/home/home";
 import Login from "./Pages/login/login";
-import Header from "./components/headre";
 import Avocats from "./Pages/avocats/avocats";
 import AvocatProfile from "./Pages/avocatProfile/avocatProfile";
 import RendeVous from "./Pages/rendez-vous/rendezVous";
@@ -17,7 +16,7 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(hasAuthenticated());
   return (
     <Router>
-      <Header></Header>
+      {/* <Header></Header> */}
 
       <Switch>
        

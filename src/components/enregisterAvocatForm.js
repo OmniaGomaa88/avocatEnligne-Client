@@ -167,7 +167,7 @@ const EnregistreForm = (props) => {
             <div>
               <Description></Description>
               <lable> Presentation *</lable>
-              <textarea classname="Presentation" onChange={handleChange} />
+              <textarea classname="Presentation" name="Presentation" onChange={handleChange} />
             </div>
             <div>
              <Work></Work>

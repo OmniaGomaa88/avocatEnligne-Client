@@ -1,6 +1,7 @@
 import { useState, React } from "react";
 import "./style/RNDForm.scss";
 import rendezVousService from "../services/rendes_Vous";
+
 const RendezVousForm = (props) => {
   const [client_situation, setSituation] = useState("");
   const [date, setDate] = useState("");
@@ -21,10 +22,11 @@ const RendezVousForm = (props) => {
     
   };
   return (
+    <div>
     <div className="rendezVousForm">
       <div className="RDVContainer">
         <div>
-          <h1 className="rendezVousFormHeader">Prenez Rendez-vous</h1>
+         
           <div className="situation">
             <p className="RNDText"> Votre situation</p>
             <textarea
@@ -47,6 +49,7 @@ const RendezVousForm = (props) => {
           </button>
         </div>
       </div>
+    </div>
     </div>
   );
 };

@@ -16,7 +16,8 @@ import AVOCATwOMAN from "../../assets/imges/AVOCATwOMAN.jpg";
 import DisponibleTable from "../../components/disponibleTable";
 import Français from "../../assets/imges/france.png";
 import Englishe from "../../assets/imges/united-kingdom.png";
-
+import NavBar from "../../components/navBar"
+import Recherche from "../../components/BarDerecherche"
 const AvocatProfile = (props) => {
   const id = props.match.params.id;
   const [error, setError] = useState(false);
@@ -52,8 +53,12 @@ const AvocatProfile = (props) => {
   }, []);
   console.log(avocat);
   return (
+    <div>
+       <NavBar></NavBar>
+     <Recherche></Recherche>
     <div className="avocatContainer">
-      <div className="avocatBack"></div>
+     
+      {/* <div className="avocatBack"></div> */}
       <div className="avocatProfileContainer">
         <div className="presAndDis">
           <div className="presentation">
@@ -71,7 +76,7 @@ const AvocatProfile = (props) => {
                   <img src={Englishe} className="langue"></img>
                 </div>
               </div>
-              <div className="infos">
+              <div className="avocatInfos">
                 <p>
                   <strong>
                     {avocat.Prénom} {avocat.Nom}
@@ -115,6 +120,7 @@ const AvocatProfile = (props) => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

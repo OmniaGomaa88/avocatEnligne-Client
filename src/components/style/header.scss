@@ -16,14 +16,32 @@ nav {
   justify-content: flex-end;
   background-color: #545454;
   padding-right: 5%;
+ 
+ 
 }
+.logo{
+  position: absolute;
+ 
+  top: 0;
+  left:20%;
+  z-index: 2;
+ 
+}
+
 .navBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  position: relative;
+ width:100%
+}
+.navItems{
   display: flex;
   flex-direction: row;
 }
 .navBarItem {
   list-style: none;
-  margin-right: 5%;
+  // margin-right: 5%;
 
   color: #aba18b;
 
@@ -34,6 +52,8 @@ a {
   text-decoration: none;
   color: #aba18b;
   font-weight: bold;
+  margin-right: 5%;
+  width: 30%;
 }
 li {
   cursor: pointer;
@@ -69,10 +89,10 @@ li {
   justify-content: center;
   padding-left: 0%;
   position: absolute;
-  top: 40%;
+  // top: 11%;
   margin-left: 2%;
   padding-bottom: 2%;
-  // margin-bottom: 20%;
+   margin-bottom: 20%;
   align-items: center;
   padding-left: 2%;
 }
