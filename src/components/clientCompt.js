@@ -1,4 +1,4 @@
-import React from "react";
+import React  , { Component } from "react";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import rendezVousService from "../services/rendes_Vous";
@@ -30,14 +30,16 @@ const ClientCompt = (props) => {
   };
 
   // function pour annuler RendezVous
-  const handleClick = async (event) => {
+ 
+  const handleClick = (event) => {
     setRendezVousId(event.target.id);
-    try {
-      const annulerResponse = await clientService.annulerRendezVous(rendezVousId);
-    } catch (error) {
-      setError(true);
-    }
+   
+      console.log('Our data is fetched');
+      const annulerResponse =  clientService.annulerRendezVous(rendezVousId);
+     
+      
   };
+  
   const getClientData = async (props) => {
     try {
       const clientData = await clientService.getrUserData();
@@ -60,6 +62,7 @@ const ClientCompt = (props) => {
         <div>
           <div>
             <div className="infos">
+            <h2> Vos données</h2>
               <p>
                 <strong>
                   {clientData.Prénom} {clientData.Nom}
@@ -94,6 +97,7 @@ const ClientCompt = (props) => {
             return (
               <div>
                 <MesRendezVous
+                
                   infosTitle="Avocat Information"
                   date={item.date.toString()}
                   Prenom={item.Prénom}
@@ -102,14 +106,17 @@ const ClientCompt = (props) => {
                   Telephone={item.Telephone}
                   client_situation={item.client_situation}
                   id={item.id}
+                  className={(item.annulé==0)?"rendezVousHeader":"annuléHeader"}
                 />
+                <div className="annulerDiv">
                 <button
                   className="AnnulBtn"
                   id={item.id}
                   onClick={(event) => handleClick(event)}
                 >
-                  Annuler
+                  Annuler le rendez-vous
                 </button>
+                </div>
               </div>
             );
           })}

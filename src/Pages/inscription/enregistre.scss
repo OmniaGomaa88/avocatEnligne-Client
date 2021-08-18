@@ -1,10 +1,11 @@
 .Buttons {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
+  align-items: center;
   font-size: 30px;
 
-  // border-bottom: 3px solid gray;
+
   color: rgb(22, 21, 21);
 
   margin-top: 5%;
@@ -12,7 +13,7 @@
   li {
     text-decoration: none;
     list-style: none;
-
+margin-left: 5%;
     // border-bottom: 3px solid rgb(248, 241, 241);
   }
 }
@@ -49,7 +50,7 @@
 .Forms {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-end;
 }
 .hidden {
   display: none;
@@ -58,7 +59,7 @@
   display: block;
 }
 .clicked {
-  // background-color:white;
+  text-shadow: 2px 1px #272624;
 
   border-bottom: 4px solid #aba18b ;
 }

@@ -16,7 +16,7 @@ const MesRendezVous = (props) => {
   return (
     <div>
       <div className="rendezVousContainer">
-        <div className="rendezVousHeader"
+        <div className={props.className}
         onClick={(event) => handleClick('clicked')}
         >
           <p>
@@ -24,7 +24,7 @@ const MesRendezVous = (props) => {
             {props.date}
           </p>
         </div>
-        <div className={(clicked == 'clicked') ?"rendezVous":"hide"}>
+        <div className={(clicked === 'clicked') ?"rendezVous":"hide"}>
           <div className="Infos">
             <p>
               {" "}

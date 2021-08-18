@@ -28,7 +28,7 @@ const clientService = {
     return await api.get(`/client`)
   },
  annulerRendezVous: async (rendezVousId) => {
-    return await api.post(`/client/Annule/`,{
+    return await api.post(`/client/Annule`,{
       rendezVousId
     })
   },

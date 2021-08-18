@@ -52,5 +52,8 @@ const avocatService = {
   nouvexAvocat: async () => {
     return await api.get(`/NouveauxAvocats`)
   },
+  uploudePhoto:async (data) => {
+    return await api.post('/upload', data)
+  },
 };
 export default avocatService;

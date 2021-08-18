@@ -7,6 +7,8 @@ import client_avec_avocat_Img from "../../assets/imges/unnamed.png";
 import Male_Lawyer_Img from "../../assets/imges/online-avocat.jpeg";
 import avocatService from "../../services/Avocat";
 import clientService from "../../services/client";
+import NavBar from "../../components/navBar";
+import Background from "../../assets/imges/waveLogin.svg";
 
 const Login = (props) => {
   const [error, setError] = useState(null);
@@ -15,45 +17,46 @@ const Login = (props) => {
     setClicked(tabName);
   };
   return (
-    <div className="container">
-      <div className="Form">
-        <h1>Connexion</h1>
-        <ul className="Buttons">
-          <li>
-            <a
-              onClick={() => handleClick("Avocat")}
-              className={clicked == "Avocat" ? "clicked" : "ButtonDefult"}
-            >
-              Avocat
-            </a>
-          </li>
-          <li>
-            <a
-              onClick={() => handleClick("Client")}
-              className={clicked == "Client" ? "clicked" : "ButtonDefult"}
-            >
-              Client
-            </a>
-          </li>
-        </ul>
+    <div className="loginContainer">
+      <NavBar></NavBar>
+ <div  className="loginBackground"></div> 
+      <ul className="Buttons">
+        <li>
+          <a
+            onClick={() => handleClick("Avocat")}
+            className={clicked == "Avocat" ? "clicked" : "ButtonDefult"}
+          >
+            Avocat
+          </a>
+        </li>
+        <li>
+          <a
+            onClick={() => handleClick("Client")}
+            className={clicked == "Client" ? "clicked" : "ButtonDefult"}
+          >
+            Client
+          </a>
+        </li>
+      </ul>
 
-        <div className="Forms">
-          <LoginForm
-            formImage={Male_Lawyer_Img}
-            className="show"
-            className={clicked == "Avocat" ? "show" : "hidden"}
-            service={avocatService}
-          />
-          <LoginForm
-            formImage={client_avec_avocat_Img}
-            className={clicked == "Client" ? "show" : "hidden"}
-            service={clientService}
-          />
-        </div>
-        <a href="/signup"> Je n'ai pas compt</a>
-        <div />
+      <div className="Forms">
+        <LoginForm
+          formImage={Male_Lawyer_Img}
+          className="show"
+          className={clicked == "Avocat" ? "show" : "hidden"}
+          service={avocatService}
+        />
+        <LoginForm
+          formImage={client_avec_avocat_Img}
+          className={clicked == "Client" ? "show" : "hidden"}
+          service={clientService}
+        />
+     
       </div>
+    
+      <div />
     </div>
+    
   );
 };
 

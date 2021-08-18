@@ -23,7 +23,7 @@ const AvocatProfile = (props) => {
   const [error, setError] = useState(false);
   const [avocat, setAvocat] = useState([]);
   const token = localStorage.getItem("token");
-
+  
   // button rendezVous rediction vars rendezvous page si l'utilisteur connecté
   // et si l'utilisteur connécté en tant que client
   let rendezVousElment = token ? (

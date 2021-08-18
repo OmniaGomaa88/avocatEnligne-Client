@@ -14,14 +14,19 @@ import Description from "@material-ui/icons/Description";
 import Work from "@material-ui/icons/Work";
 import Euro from "@material-ui/icons/Euro";
 import AddAPhoto from "@material-ui/icons/AddAPhoto";
-
-
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import lawyerOnline from "../assets/imges/lawyerOnline.jpg";
 
 const EnregistreForm = (props) => {
   const classHidde = props.className;
   const [vills, setVills] = useState([]);
   const [specialits, setSpecialits] = useState([]);
+  const [NextClicked, SetNextClicked] = useState(false);
+  const [visibleClecked, setVisibleClecked] = useState("");
   const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [imageFile, setImageFile] = useState(null);
   const [state, setState] = useState({
     prenom: "",
     nom: "",
@@ -33,15 +38,18 @@ const EnregistreForm = (props) => {
     Presentation: "",
     Specialite: "",
     Honorare: 0,
-    image: "",
   });
   const handleChange = (event) => {
     setState({
       ...state,
       [event.target.name]: event.target.value,
     });
-    console.log(event.target.value);
   };
+  // function pof henadelChange image
+  const fileSelctHandler = (event) => {
+    setImageFile(event.target.files[0].name);
+  };
+  //
 
   const handleClick = async (event) => {
     const prenom = state.prenom;
@@ -54,27 +62,40 @@ const EnregistreForm = (props) => {
     const Presentation = state.Presentation;
     const Specialite = state.Specialite;
     const Honorare = state.Honorare;
-    const image = state.image;
-    try {
-      const addNewAvocat = await avocatService.addNewAvocat(
-        prenom,
-        nom,
-        Email,
-        Password,
-        Telephone,
-        Adress,
-        Ville,
-        Presentation,
-        Specialite,
-        Honorare,
-        image
-      );
-      console.log("addNewAvocat post", addNewAvocat);
-    } catch (error) {
-      setError(error);
+    const image = imageFile;
+    if (
+      prenom == " " ||
+      nom == "" ||
+      Email == "" ||
+      Password == "" ||
+      Ville == "" ||
+      Specialite == ""
+    ) {
+      setError(true);
+      setErrorMessage("Veuillez remplir les informations manquantes");
+    } else {
+      try {
+        const addNewAvocat = await avocatService.addNewAvocat(
+          prenom,
+          nom,
+          Email,
+          Password,
+          Telephone,
+          Adress,
+          Ville,
+          Presentation,
+          Specialite,
+          Honorare,
+          image
+        );
+      } catch (error) {
+        if (error.response && error.response.data) {
+          setError(true);
+          setErrorMessage(error.response.data.message);
+        }
+      }
     }
   };
-
 
   console.log(error);
 
@@ -83,9 +104,11 @@ const EnregistreForm = (props) => {
     try {
       const villsData = await villeService.getAll();
       setVills(villsData.data.result);
-      console.log(vills);
     } catch (error) {
-      console.log(error);
+      if (error.response && error.response.data) {
+        setError(true);
+        setErrorMessage(error.response.data.message);
+      }
     }
   };
   // fnction to get all specialits
@@ -95,9 +118,34 @@ const EnregistreForm = (props) => {
       setSpecialits(specialitdata.data.result);
       console.log(specialits);
     } catch (error) {
-      console.log(error);
+      if (error.response && error.response.data) {
+        setError(true);
+        setErrorMessage(error.response.data.message);
+      }
     }
   };
+  // .................
+  // function for visability of password
+  const VisibleHandler = (visibleName) => {
+    setVisibleClecked(visibleName);
+  };
+  // visabiltyImage
+  let visabiltyImage = "";
+  if (visibleClecked == "Visibility") {
+    visabiltyImage = (
+      <VisibilityOff
+        className="visibilitéIcon"
+        onClick={(event) => VisibleHandler("VisibilityOff")}
+      ></VisibilityOff>
+    );
+  } else {
+    visabiltyImage = (
+      <Visibility
+        className="visibilitéIcon"
+        onClick={(event) => VisibleHandler("Visibility")}
+      ></Visibility>
+    );
+  }
 
   useEffect(() => {
     getVills();
@@ -109,51 +157,79 @@ const EnregistreForm = (props) => {
   return (
     <div className={classHidde}>
       <div className="Formcontainer">
-     
+        <h3 className="error"> {errorMessage} </h3>
+        <img src={lawyerOnline} alt="male lawyer " className="FormImg" />
         <div className="form">
-        <img src={Male_Lawyer_Img} alt="male lawyer " className="FormImg" />
+          <h2>Inscription</h2>
 
-          <div className="row">
+          <div className={NextClicked ? "hide " : " row"}>
             <div>
               <Person></Person>
               <lable>prenom *</lable>
-              <input name="prenom" onChange={handleChange} />
+              <input
+                name="prenom"
+                onChange={handleChange}
+                placeholder="Prénome"
+              />
             </div>
             <div>
               <Person></Person>
               <lable>Nom *</lable>
-              <input name="nom" onChange={handleChange} />
+              <input name="nom" onChange={handleChange} placeholder="Nom" />
             </div>
           </div>
-          <div className="row">
+          <div className={NextClicked ? "hide " : " row"}>
             <div>
               <Email></Email>
               <lable>Email * </lable>
-              <input name="Email" onChange={handleChange} />
+              <input
+                name="Email"
+                onChange={handleChange}
+                placeholder="Email adress"
+              />
             </div>
-            <div>
+            <div className="passWordInput">
               <Lock></Lock>
               <lable>Password *</lable>
-              <input name="Password" onChange={handleChange} />
+              {visabiltyImage}
+
+              <input
+                name="Password"
+                onChange={handleChange}
+                placeholder="********"
+                type={visibleClecked == "Visibility" ? "text" : "password"}
+              />
             </div>
           </div>
-          <div className="column">
+          <div className={NextClicked ? "hide " : " column"}>
             <div>
               <Phone></Phone>
               <label> Téléphone</label>
-              <input name="Telephone" onChange={handleChange} />
+              <input
+                name="Telephone"
+                onChange={handleChange}
+                placeholder="Telphone"
+              />
             </div>
             <div>
               <LocationOnone></LocationOnone>
-              <lable>Adress *</lable>
-              <input name="Adress" onChange={handleChange} />
+              <lable>Adress </lable>
+              <input
+                name="Adress"
+                onChange={handleChange}
+                placeholder="Adress"
+              />
             </div>
             <div>
               <LocationCity></LocationCity>
               <lable> Ville</lable>
-              <select name="Ville" className="select" onChange={handleChange}>
+              <select
+                name="Ville"
+                className="selectAvocatForm"
+                onChange={handleChange}
+              >
                 <option value="Choisissez votre ville *">
-                Sélectionnez votre ville
+                  Sélectionnez votre ville
                 </option>
                 {vills.map((ville, index) => (
                   <option key={index} value={ville.nom}>
@@ -162,23 +238,38 @@ const EnregistreForm = (props) => {
                 ))}
               </select>
             </div>
+            <button
+              onClick={(event) => SetNextClicked(true)}
+              className="suivantBtn"
+            >
+              {" "}
+              Suivant
+            </button>
           </div>
-          <div className="column">
+
+          <div className={NextClicked ? "column " : " hide"}>
             <div>
               <Description></Description>
               <lable> Presentation *</lable>
-              <textarea classname="Presentation" name="Presentation" onChange={handleChange} />
+              <div>
+                <textarea
+                  classname="Presentation"
+                  name="Presentation"
+                  onChange={handleChange}
+                  placeholder="Presentation..."
+                />
+              </div>
             </div>
             <div>
-             <Work></Work>
+              <Work></Work>
               <lable>Specialite </lable>
               <select
-                className="select"
+                className="selectAvocatForm"
                 name="Specialite"
                 onChange={handleChange}
               >
                 <option value="Choisissez votre Spécialité">
-                Sélectionnez votre Spécialité
+                  Sélectionnez votre Spécialité
                 </option>
                 {specialits.map((specialit, index) => (
                   <option key={index} value={specialit.nom}>
@@ -189,28 +280,45 @@ const EnregistreForm = (props) => {
             </div>
             <div>
               <Euro></Euro>
-              <lable>Honoraire *</lable>
-              <input name="Honorare" onChange={handleChange} />
+              <lable>Honoraire </lable>
+              <input
+                name="Honorare"
+                onChange={handleChange}
+                placeholder="Honoraire $"
+              />
             </div>
           </div>
-          <div className="column">
-          <div className="image">
-            <div>
-              <AddAPhoto></AddAPhoto>
-              <lable> Image * </lable>
-              <input name="image" type="file" onChange={handleChange} />
+          <div className={NextClicked ? "column " : " hide"}>
+            <div className="image">
+              <div>
+                <AddAPhoto></AddAPhoto>
+                <lable> Image </lable>
+                <input name="file" type="file" onChange={fileSelctHandler} />
+              </div>
+            </div>
+            <button
+              onClick={(event) => SetNextClicked(false)}
+              className="suivantBtn"
+            >
+              {" "}
+              Returne
+            </button>
+
+            <div className="subBtns">
+              <a href={error ? "#" : "/Login"}>
+                <button
+                  onClick={(event) => handleClick(event)}
+                  className="subBtn"
+                >
+                  Enregistre
+                </button>
+              </a>
+              <a href="/Login">
+                <button className="subBtn">Se connecter</button>
+              </a>
             </div>
           </div>
-          <button onClick={(event) => handleClick(event)} className="subBtn">
-            Enregistre
-          </button>
-          <a className="connixion"
-        href="/Login"
-        >J'ai déja un compt</a>
         </div>
-          </div>
-         
-        
       </div>
     </div>
   );
