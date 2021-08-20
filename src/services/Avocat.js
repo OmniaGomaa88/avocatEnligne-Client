@@ -55,5 +55,10 @@ const avocatService = {
   uploudePhoto:async (data) => {
     return await api.post('/upload', data)
   },
+  annulerRendezVous: async (rendezVousId) => {
+    return await api.post(`/Annule`,{
+      rendezVousId
+    })
+  },
 };
 export default avocatService;

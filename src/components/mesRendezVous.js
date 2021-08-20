@@ -2,6 +2,7 @@ import { useState, React } from "react";
 import "./style/mesRendezVous.scss";
 import "../components/style/form.scss"
 
+
 const MesRendezVous = (props) => {
   const [clicked, setClicked] = useState(null);
   const handleClick=(tabName)=>{
@@ -21,7 +22,7 @@ const MesRendezVous = (props) => {
         >
           <p>
             <strong>Date</strong>
-            {props.date}
+            {props.date} {props.heure}
           </p>
         </div>
         <div className={(clicked === 'clicked') ?"rendezVous":"hide"}>

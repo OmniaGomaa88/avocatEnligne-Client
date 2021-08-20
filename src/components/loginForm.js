@@ -72,7 +72,7 @@ const LoginForm = (props) => {
                />
         </div>
         <div className="subBtns">
-        <a href={error ? "/" : "#"}>
+        <a >
           <button onClick={(e) => hendelClick(e)} className="subBtn">
             Connecter
           </button>

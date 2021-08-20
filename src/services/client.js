@@ -27,8 +27,13 @@ const clientService = {
   getrUserData: async () => {
     return await api.get(`/client`)
   },
+  updateData: async ( adress, telephone) => {
+    return await api.put(`client/ubdateData`,{
+      adress, telephone
+    });
+  },
  annulerRendezVous: async (rendezVousId) => {
-    return await api.post(`/client/Annule`,{
+    return await api.post(`client/Annule`,{
       rendezVousId
     })
   },

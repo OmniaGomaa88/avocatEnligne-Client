@@ -45,11 +45,7 @@ const EnregistreForm = (props) => {
       [event.target.name]: event.target.value,
     });
   };
-  // function pof henadelChange image
-  const fileSelctHandler = (event) => {
-    setImageFile(event.target.files[0].name);
-  };
-  //
+
 
   const handleClick = async (event) => {
     const prenom = state.prenom;
@@ -88,11 +84,13 @@ const EnregistreForm = (props) => {
           Honorare,
           image
         );
+        window.location.reload()
       } catch (error) {
         if (error.response && error.response.data) {
           setError(true);
           setErrorMessage(error.response.data.message);
         }
+       
       }
     }
   };
@@ -117,6 +115,7 @@ const EnregistreForm = (props) => {
       const specialitdata = await specialitService.getAll();
       setSpecialits(specialitdata.data.result);
       console.log(specialits);
+     
     } catch (error) {
       if (error.response && error.response.data) {
         setError(true);
@@ -293,7 +292,7 @@ const EnregistreForm = (props) => {
               <div>
                 <AddAPhoto></AddAPhoto>
                 <lable> Image </lable>
-                <input name="file" type="file" onChange={fileSelctHandler} />
+                <input name="file" type="file"  />
               </div>
             </div>
             <button
@@ -305,7 +304,7 @@ const EnregistreForm = (props) => {
             </button>
 
             <div className="subBtns">
-              <a href={error ? "#" : "/Login"}>
+              <a >
                 <button
                   onClick={(event) => handleClick(event)}
                   className="subBtn"

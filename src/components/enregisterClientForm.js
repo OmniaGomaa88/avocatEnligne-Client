@@ -52,6 +52,7 @@ const ClientEnregistreForm = (props) => {
         Adress
       );
       console.log("addNewClient post", addNewClient);
+      window.location.reload()
     } catch (error) {
       setError(error);
       if (error.response && error.response.data) {
@@ -148,7 +149,7 @@ const ClientEnregistreForm = (props) => {
               />
             </div>
             <div className="subBtns">
-            <a href={error?"#":"Login"}>
+            <a >
               <button
                 onClick={(event) => handleClick(event)}
                 className="subBtn"

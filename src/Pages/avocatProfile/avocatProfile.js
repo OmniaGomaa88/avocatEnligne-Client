@@ -57,7 +57,7 @@ const AvocatProfile = (props) => {
        <NavBar></NavBar>
      <Recherche></Recherche>
     <div className="avocatContainer">
-     
+  
       {/* <div className="avocatBack"></div> */}
       <div className="avocatProfileContainer">
         <div className="presAndDis">

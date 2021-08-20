@@ -12,6 +12,7 @@ import "../Pages/compt/compt.scss";
 import MesRendezVous from "../components/mesRendezVous";
 import NavBar from "../components/navBar";
 import DisponibleTable from "../components/disponibleTable";
+import * as moment  from 'moment'
 const AvocatCompt = (props) => {
   const [error, setError] = useState("");
   const [rendezVous, setRendezVous] = useState([]);
@@ -21,6 +22,7 @@ const AvocatCompt = (props) => {
   const [presentation, setPresentation] = useState("");
   const [telephone, setTelphone] = useState(0);
   const [horaire, setHoraire] = useState(0);
+  const [rendezVousId, setRendezVousId] = useState(0);
 
   const handleClick = async (event) => {
     const Email = email;
@@ -37,6 +39,11 @@ const AvocatCompt = (props) => {
       setError(error);
       console.log(error);
     }
+  };
+  const anullerRendezVous = (event) => {
+    setRendezVousId(event.target.id);
+
+    const annulerResponse = avocatService.annulerRendezVous(rendezVousId);
   };
 
   const getAvocatRendezVous = async (props) => {
@@ -74,39 +81,36 @@ const AvocatCompt = (props) => {
       <div className="comptContainer">
         <div>
           <div>
-            <div>
+            <div className="infos">
+              <h2> Vos données</h2>
               <img src={avocatImgProfile} className="RountGrand"></img>
 
-              <div>
-                <p>
-                  <strong>
-                    {avocatData.Prénom} {avocatData.Nom}
-                  </strong>{" "}
-                </p>
-                <p>
-                  <LocationOnone></LocationOnone>
-                  <input
-                    value={adress}
-                    onChange={(e) => setAdress(e.target.value)}
-                  />
-                </p>
-                <textarea
-                  value={presentation}
-                  onChange={(e) => setPresentation(e.target.value)}
+              <p>
+                <strong>
+                  {avocatData.Prénom} {avocatData.Nom}
+                </strong>{" "}
+              </p>
+              <p>
+                <LocationOnone></LocationOnone>
+                <input
+                  value={adress}
+                  onChange={(e) => setAdress(e.target.value)}
                 />
-                <p>
-                  <strong>Honoraire:</strong>
-                  <Euro></Euro>
-                  <input
-                    value={horaire}
-                    onChange={(e) => setHoraire(e.target.value)}
-                  />
-                </p>
-              </div>
-            </div>
-
-            <div>
-              <div>
+              </p>
+              <textarea
+                value={presentation}
+                onChange={(e) => setPresentation(e.target.value)}
+              />
+              <p>
+                <strong>Honoraire:</strong>
+                <Euro></Euro>
+                <input
+                  value={horaire}
+                  onChange={(e) => setHoraire(e.target.value)}
+                />
+              </p>
+           
+            
                 <p>
                   <Phone></Phone>
                   <input
@@ -121,26 +125,47 @@ const AvocatCompt = (props) => {
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </p>
-                <button onClick={(event) => handleClick(event)}>
+                </div>
+              
+                <button
+                  className="AnnulBtn"
+                  onClick={(event) => handleClick(event)}
+                >
                   Enregistre
                 </button>
-              </div>
-            </div>
+            
           </div>
+         
         </div>
         <div className="Aside">
           <h1> vos Rendez-vous</h1>
           {rendezVous.map((item, index) => {
             return (
-              <MesRendezVous
-                infosTitle="Client Information"
-                date={item.date.toString()}
-                Prenom={item.Prénom}
-                Nom={item.Nom}
-                Email={item.Email}
-                Telephone={item.Telephone}
-                client_situation={item.client_situation}
-              />
+              <div>
+                <MesRendezVous
+                  infosTitle="Client Information"
+      date={ moment(item.date).format('YYYY-MM-DD')}
+      heure={item.heure}
+
+                  Prenom={item.Prénom}
+                  Nom={item.Nom}
+                  Email={item.Email}
+                  Telephone={item.Telephone}
+                  client_situation={item.client_situation}
+                  className={
+                    item.annulé == 0 ? "rendezVousHeader" : "annuléHeader"
+                  }
+                />
+                <div className="annulerDiv">
+                  <button
+                    className={item.annulé == 0 ? "AnnulBtn" : "hide"}
+                    id={item.id}
+                    onClick={(event) => anullerRendezVous(event)}
+                  >
+                    Annuler le rendez-vous
+                  </button>
+                </div>
+              </div>
             );
           })}
         </div>
