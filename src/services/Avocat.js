@@ -44,9 +44,11 @@ const avocatService = {
   getrUserData: async () => {
     return await api.get(`/avocatprofile`);
   },
-  updateData: async (Email, Adress, Presentation) => {
+  updateData: async (Adress, horaire,
+    Telephone, Presentation) => {
     return await api.put(`/editData`,{
-      Email, Adress, Presentation
+      Adress, horaire,
+      Telephone, Presentation
     });
   },
   nouvexAvocat: async () => {

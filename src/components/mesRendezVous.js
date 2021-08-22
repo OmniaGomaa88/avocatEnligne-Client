@@ -33,8 +33,9 @@ const MesRendezVous = (props) => {
             </p>
             <p>
               {" "}
-              <strong> Prénom:</strong>
-              {props.Prenom} <strong> Nom:</strong> {props.Nom}{" "}
+            <a href={"/avocat/"+props.AvocatId}>
+              {props.Prenom} {props.Nom}{" "}
+              </a>
             </p>
             <p>
               {" "}

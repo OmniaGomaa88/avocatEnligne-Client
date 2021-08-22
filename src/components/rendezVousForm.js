@@ -9,6 +9,7 @@ import {
   KeyboardTimePicker,
   KeyboardDatePicker,
 } from "@material-ui/pickers";
+
 import * as moment from "moment";
 const RendezVousForm = (props) => {
   const [client_situation, setSituation] = useState("");
@@ -18,11 +19,12 @@ const RendezVousForm = (props) => {
   const hendelDateChange = (date) => {
     setDate(date);
   };
+
   const hendelClick = async () => {
     try {
       let avocatId = props.avocatId;
       const beginDate = moment(date).format("YYYY-MM-DD");
-      let response = await rendezVousService.addRendezVous(
+      await rendezVousService.addRendezVous(
         client_situation,
         beginDate,
         avocatId
@@ -31,6 +33,7 @@ const RendezVousForm = (props) => {
       setError(error);
     }
   };
+
   return (
     <div>
       <div className="rendezVousForm">

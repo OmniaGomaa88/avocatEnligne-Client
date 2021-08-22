@@ -15,7 +15,7 @@ const NavBar = (props) => {
     let connectElment = token ? (
       <a href={`/compt`} className="navBarItem">
         <AccountCircleOutlined></AccountCircleOutlined>
-        <p> Profile</p>
+        <p> Profil</p>
       </a>
     ) : (
       <a href={"/Login"} className="navBarItem">
@@ -42,7 +42,7 @@ const NavBar = (props) => {
     <li  className="navBarItem">
       <Home></Home>
       <a href="/">
-        <p>Accueil</p></a></li>
+       <p>Accueil</p> </a></li>
       <li className="navBarItem">{connectElment}</li>
       <li className={token ? "hidden" : "navBarItem"}>
         <PersonAddOutlined></PersonAddOutlined>

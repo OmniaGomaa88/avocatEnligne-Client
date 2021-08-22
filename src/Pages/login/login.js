@@ -19,7 +19,7 @@ const Login = (props) => {
   return (
     <div className="loginContainer">
       <NavBar></NavBar>
- <div  className="loginBackground"></div> 
+      <div className="loginBackground"></div>
       <ul className="Buttons">
         <li>
           <a
@@ -51,12 +51,10 @@ const Login = (props) => {
           className={clicked == "Client" ? "show" : "hidden"}
           service={clientService}
         />
-     
       </div>
-    
+
       <div />
     </div>
-    
   );
 };
 

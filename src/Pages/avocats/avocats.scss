@@ -1,4 +1,20 @@
 .avocatsContainer{
+    
     background-color: #eeecec;
-    padding-top: 5%;
+    padding-top: 8%;
+    h3{
+        background-color: rgba(163, 154, 129, 0.438);
+        font-family:serif;
+        padding-left: 4%;
+        margin-left: 5%;
+    }
+    span{
+        color: rgb(151, 135, 99);
+        text-shadow:2px 3px #eeecec
+    }
+}
+@media screen and (max-width:1024px){
+    .avocatsContainer{
+        padding-top: 50%;
+    }
 }

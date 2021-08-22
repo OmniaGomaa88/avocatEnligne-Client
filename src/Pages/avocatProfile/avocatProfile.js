@@ -18,25 +18,26 @@ import Français from "../../assets/imges/france.png";
 import Englishe from "../../assets/imges/united-kingdom.png";
 import NavBar from "../../components/navBar"
 import Recherche from "../../components/BarDerecherche"
+
 const AvocatProfile = (props) => {
   const id = props.match.params.id;
   const [error, setError] = useState(false);
   const [avocat, setAvocat] = useState([]);
   const token = localStorage.getItem("token");
-  
-  // button rendezVous rediction vars rendezvous page si l'utilisteur connecté
-  // et si l'utilisteur connécté en tant que client
-  let rendezVousElment = token ? (
+  const isClient = localStorage.getItem("isClient");
+  const handelClickRDV=()=>{
+     var r=window.confirm("Êtes-vous client?"+"Connectez vous pour prendre randez-vous")
+    if(r== true){
+      window.location.replace("/Login");
+    }
+  }
+  let conditions= (token && isClient === "true")
+  let rendezVousElment = conditions ? (
     <a href={`/rendezVous/${id}`}>
       <button className="RDVBtn"> Prenez randez-vous</button>
     </a>
   ) : (
-    <a href={"/Login"}>
-      <p className="messageConnectez">
-        {" "}
-        Connectez vous pour prendre randez-vous
-      </p>
-    </a>
+    <button className="RDVBtn" onClick={handelClickRDV}> Prenez randez-vous</button>
   );
 
   const getAvocatById = async (props) => {
@@ -44,6 +45,7 @@ const AvocatProfile = (props) => {
     try {
       const avocatData = await avocatService.getById(id);
       setAvocat(avocatData.data.result[0]);
+      console.log(avocatData.data.result[0])
     } catch (error) {
       setError(true);
     }
@@ -52,6 +54,7 @@ const AvocatProfile = (props) => {
     getAvocatById();
   }, []);
   console.log(avocat);
+  
   return (
     <div>
        <NavBar></NavBar>
@@ -94,7 +97,7 @@ const AvocatProfile = (props) => {
                 </p>
               </div>
             </div>
-            <h4>___________________________Contacts______________________</h4>
+            <h4>Contacts</h4>
             <div className="contact">
               <div>
                 <p>
@@ -114,7 +117,7 @@ const AvocatProfile = (props) => {
             {/* botton vers page rendezVous */}
             {rendezVousElment}
             <div className="Disponibilité">
-              <h4>__________________Disponibilité____________________</h4>
+              <h4>Disponibilité</h4>
               <DisponibleTable></DisponibleTable>
             </div>
           </div>

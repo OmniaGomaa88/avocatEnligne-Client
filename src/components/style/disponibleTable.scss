@@ -22,6 +22,9 @@
     td{
         border-right: 1px solid #f8f8f8;
         font-size: 12px;
+        .checkIcon {
+            width: 20px;
+          }
     }
     thead
     {
@@ -38,4 +41,45 @@
     tr:nth-child(even) {
         background: #F8F8F8;
     }
+}
+@media screen and (max-width:1024px){
+    .disponible{
+        margin: 5px 0px 10px;
+      
+        height: 90px;
+       width:10%
+    }
+    .fl-table{
+       
+      font-size: 10px;
+        white-space: nowrap;
+        background-color: white;
+    
+        thead
+        {
+            th {
+                color: black;
+                background: #D6CCB3;
+                width: 10%;
+            }
+            th:nth-child(odd) {
+                color:black;
+                background:#FDF9EF;
+            }
+            
+    
+        } 
+        tr:nth-child(even) {
+            background: #F8F8F8;
+        }
+        td{
+            border-right: 1px solid #f8f8f8;
+            font-size: 15px;
+            .checkIcon {
+                width: 10px;
+              }
+        }
+       
+    }
+   
 }

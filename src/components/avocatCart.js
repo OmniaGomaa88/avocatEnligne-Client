@@ -5,6 +5,8 @@ import profilePhoto from "../assets/imges/profileAvatar.jpg";
 import { Link } from "react-router-dom";
 import './style/avocatCart.scss'
 import DisponibleTable from "../components/disponibleTable"
+import LocationOnone from "@material-ui/icons/LocationOn";
+
 const AvocatCarte = (props) => {
  
 
@@ -20,7 +22,10 @@ const AvocatCarte = (props) => {
               
            </div>
            <div className="AdressAndRendezVous">
+             <div className="AvocatCartAdress">
+           <LocationOnone></LocationOnone>
                <p>{props.adress}</p>
+               </div>
                <Link to={props.link}>
                <button className="RDVBtn">Voir le profile </button>
                    </Link>  
@@ -28,8 +33,10 @@ const AvocatCarte = (props) => {
            </div>
 
        </div>
-   
+       <div className="Disponibilité">
+       <h4>Disponibilité</h4>
 <DisponibleTable width="100%"></DisponibleTable>
+</div>
       </div>
     
     </div>

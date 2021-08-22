@@ -26,7 +26,9 @@ const EnregistreForm = (props) => {
   const [visibleClecked, setVisibleClecked] = useState("");
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [imageFile, setImageFile] = useState(null);
+  const [image, setImageFile] = useState('');
+  const [selectedFile, setSelectedFile] = useState('');
+
   const [state, setState] = useState({
     prenom: "",
     nom: "",
@@ -38,16 +40,21 @@ const EnregistreForm = (props) => {
     Presentation: "",
     Specialite: "",
     Honorare: 0,
+   
   });
   const handleChange = (event) => {
     setState({
       ...state,
       [event.target.name]: event.target.value,
     });
+    
   };
 
 
   const handleClick = async (event) => {
+    event.preventDefault()
+    const formData = new FormData()
+    formData.append('profileImg', image)
     const prenom = state.prenom;
     const nom = state.nom;
     const Email = state.Email;
@@ -58,7 +65,7 @@ const EnregistreForm = (props) => {
     const Presentation = state.Presentation;
     const Specialite = state.Specialite;
     const Honorare = state.Honorare;
-    const image = imageFile;
+    const profileImg = image;
     if (
       prenom == " " ||
       nom == "" ||
@@ -82,7 +89,7 @@ const EnregistreForm = (props) => {
           Presentation,
           Specialite,
           Honorare,
-          image
+          profileImg
         );
         window.location.reload()
       } catch (error) {
@@ -292,7 +299,7 @@ const EnregistreForm = (props) => {
               <div>
                 <AddAPhoto></AddAPhoto>
                 <lable> Image </lable>
-                <input name="file" type="file"  />
+                <input name="image" type="file" onChange={(e)=>setImageFile(e.target.files[0])}  />
               </div>
             </div>
             <button

@@ -1,11 +1,10 @@
 .avocatProfileContainer {
   display: flex;
   justify-content: center;
-//   position: absolute;
-//   top: 30%;
 padding-top:10%;
   background-color: #eeecec;
   font-size: 20px;
+  
   strong {
     color: #aba18b;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -15,7 +14,14 @@ padding-top:10%;
     color: #928c8c;
   }
   // justify-content: space-evenly;
+  h4:before {
+    content: "________________"
+  }
+  h4:after {
+    content: "________________"
+  }
 }
+
 .avocatBack {
   background-color: #aba18b;
   height: 300px;
@@ -34,9 +40,7 @@ padding-top:10%;
   flex-direction: column;
   width: 80%;
 }
-.checkIcon {
-  width: 20px;
-}
+
 
 .presentation {
   h2 {
@@ -95,6 +99,12 @@ padding-top:10%;
 }
 .Disponibilité {
   padding-top: 5%;
+  h4:before {
+    content: "_____________"
+  }
+  h4:after {
+    content: "________________"
+  }
 }
 .presText {
   width: 100%;
@@ -122,5 +132,55 @@ padding-top:10%;
   margin-left: 50%;
   width: auto;
 }
-.avocatInfos {
+
+@media screen and (max-width:700px){
+  .avocatProfileContainer{
+    padding-top: 50%;
+    justify-content: flex-end;
+    align-items: left;
+    font-size: 15px;
+ 
+  }
+  .presentation{
+    width: 100%;
+    border-radius:0;
+    padding-bottom: 30%;
+  }
+  .presAndDis{
+    width: 100%;
+    margin-right: 10%;
+    
+  }
+  .photoAndInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top:30%;
+    width:100%;
+  }
+  .ContactCosial {
+    position: absolute;
+    top: 2%;
+    right: 0%;
+    width: 100%;
+    font-size:15px;
+   
+  }
+  .langue {
+    width: 10%;
+  }
+  .photoAndeLangue {
+    display: flex;
+    flex-direction: column;
+   
+    align-items: center;
+    .RountGrand{
+      width: 60%;
+    }
+  }
+  .presText{
+    font-size: 15px;
+    width: 90%;
+  }
+
 }

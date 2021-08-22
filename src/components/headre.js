@@ -18,7 +18,7 @@ const Header = (props) => {
       >
         <div className="HeaderText">
           <h1>Avocat enligne</h1>
-          <p>Trouvez un avoca partout en France, par domaine de compétence</p>
+          <p>Trouvez un avocat partout en France, par domaine de compétence</p>
         </div>
        
         <Recherche></Recherche>

@@ -17,9 +17,9 @@ const Avocats = (props) => {
   return (
    <div>
      <NavBar></NavBar>
-   
+   <Recherche></Recherche>
     <div className="avocatsContainer">
-      <h2> les avocat de Spécialité :{Specialite} dans la ville : <span>{ville}</span></h2>
+      <h3> les avocat de Spécialité :<span>{Specialite}</span> dans la ville : <span>{ville}</span></h3>
       {data.map((avocat,index) =>{
         return(
         <AvocatCarte

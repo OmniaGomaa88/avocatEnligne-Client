@@ -23,7 +23,7 @@ const Recherche = (props) => {
     let data = response.data.result;
     localStorage.setItem("avocats", JSON.stringify(data));
   };
-  localStorage.setItem("vill", ville);
+  localStorage.setItem("ville", ville);
   localStorage.setItem("Specialite", Specialite);
   const getVills = async () => {
     try {

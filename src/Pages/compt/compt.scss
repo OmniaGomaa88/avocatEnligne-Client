@@ -25,17 +25,23 @@ display: block;
     margin-top: 2%;
     margin-left: 5%;
    font-size:20px;
-    height: 300px;
+    height: auto;
     width:500px;
     input{
         width:50%;
         background-color:#e8e8e8;
     }
     textarea{
-        width:50%;
-        background-color:#e8e8e8;
+        width:70%;
+        height:100px;
+        background-color: white;
+        overflow: scroll;
+        font-family: serif;
+        font-size: 15px;
     }
-    
+    a{
+        text-decoration:underline;
+    }
    
 }
 .donnesAvocat{
@@ -61,5 +67,13 @@ display: block;
 }
 .avocatComptContainer{
     background-color:#e8e8e8
+}
+@media screen and (max-width:700px){
+    .comptContainer{
+        flex-direction: column;
+    }
+    .Aside{
+        width:80%;
+    }
 }
 
