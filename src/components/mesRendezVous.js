@@ -33,7 +33,7 @@ const MesRendezVous = (props) => {
             </p>
             <p>
               {" "}
-            <a href={"/avocat/"+props.AvocatId}>
+            <a href={props.herf}>
               {props.Prenom} {props.Nom}{" "}
               </a>
             </p>

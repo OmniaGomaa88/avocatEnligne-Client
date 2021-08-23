@@ -150,6 +150,7 @@ const ClientCompt = (props) => {
                   className={
                     item.annulé == 0 ? "rendezVousHeader" : "annuléHeader"
                   }
+                  herf={"/avocat/"+item.avocat_id}
                 />
                 <div className="annulerDiv">
                   <button

@@ -175,6 +175,8 @@ const AvocatCompt = (props) => {
                   className={
                     item.annulé == 0 ? "rendezVousHeader" : "annuléHeader"
                   }
+                  herf="#"
+                
                 />
                 <div className="annulerDiv">
                   <button
