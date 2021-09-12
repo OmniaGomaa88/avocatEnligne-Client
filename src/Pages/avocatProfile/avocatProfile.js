@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import Facebook from "@material-ui/icons/Facebook";
 import Instagram from "@material-ui/icons/Instagram";
 import Twitter from "@material-ui/icons/Twitter";
-import avocatImgProfile from "../../assets/imges/profileAvatar.jpg";
+import profilePhoto from "../../assets/imges/profilePicture.png";
+
 import Email from "@material-ui/icons/Email";
 import Phone from "@material-ui/icons/Phone";
 import LocationOnone from "@material-ui/icons/LocationOn";
@@ -73,7 +74,7 @@ const AvocatProfile = (props) => {
             </div>
             <div className="photoAndInfo">
               <div className="photoAndeLangue">
-                <img src={AVOCATwOMAN} className="RountGrand"></img>
+                <img src={profilePhoto} className="RountGrand"></img>
                 <div>
                   <img src={Français} className="langue"></img>
                   <img src={Englishe} className="langue"></img>

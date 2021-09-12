@@ -23,7 +23,7 @@
         border-right: 1px solid #f8f8f8;
         font-size: 12px;
         .checkIcon {
-            width: 20px;
+            width: 15px;
           }
     }
     thead
@@ -31,6 +31,7 @@
         th {
             color: black;
             background: #D6CCB3;
+            width: 10%;
         }
         th:nth-child(odd) {
             color:black;

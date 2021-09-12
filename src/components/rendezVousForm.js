@@ -29,6 +29,7 @@ const RendezVousForm = (props) => {
         beginDate,
         avocatId
       );
+      alert("le rendez-vous a été enregistré");
     } catch (error) {
       setError(error);
     }

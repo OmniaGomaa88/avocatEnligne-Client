@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import "./style/header.scss";
-import profilePhoto from "../assets/imges/profileAvatar.jpg";
+import profilePhoto from "../assets/imges/profilePicture.png";
 import { Link } from "react-router-dom";
 import './style/avocatCart.scss'
 import DisponibleTable from "../components/disponibleTable"
